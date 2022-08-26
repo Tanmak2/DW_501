@@ -1,0 +1,102 @@
+table{
+    border-spacing: 0px;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+}
+table tr td{
+    width: 120px;
+    height: 50px;
+    text-align: center;
+}
+.top {
+    border-bottom: 0px;
+}
+.top tr td{
+    text-align: right;
+    width: 681px;
+    padding-right: 35px;
+}
+.main{
+    height: 500px;
+    border-top: 0px;
+    border-bottom: 0px;
+    border-right: 0px;
+}
+.main tr td{
+    border: 1px solid black;
+    border-top: 0px;
+    border-left: 0px;
+    height: 250px;
+}
+.notice_control td{
+    vertical-align: top;
+}
+.notice{
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 180px;
+    height: 30px;
+    border: 0px;
+    float: left;
+}
+.notice tr td{
+    border: 0px;
+    height: 30px;
+}
+.img:hover{
+    opacity: 0.4;
+}
+
+.notice tr td{
+    vertical-align: middle;
+    border: 1px solid black;
+}
+.notice tr #noti2{
+    border: 1px solid white;
+}
+.notice tr #noti2:hover ~ .noti1{
+    border: 1px solid white;
+}
+.notice tr #noti2:hover{
+    border: 1px solid black;
+}
+hr{
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 620px;
+}
+.any{
+    border-top: 0px;
+}
+.line{
+    border-bottom: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    width: 300px;
+}
+.sub{
+    width: 130px;
+    border: 0px;
+}
+.sub tr td{
+    background-color: rgb(0,100,204);
+    color: white;
+    font-weight: bold;
+    font-size: 15pt;
+    height: 50px;
+    border: 0px;
+}
+.sub tr td:hover{
+    background-color: rgb(178,235,244);
+    color: black;
+}
+.menu td{
+    border: 0px;
+}
+.menu tr td:hover{
+    color: #999;
+    font-weight: bold;
+}

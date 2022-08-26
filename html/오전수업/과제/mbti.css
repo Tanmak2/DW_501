@@ -1,0 +1,244 @@
+#main_wrap{
+    width: 900px;
+    height: auto;
+    margin: 0 auto;
+}
+#caption_wrap{
+    width: 900px;
+    height: auto;
+}
+#result_wrap{
+    width: 900px;
+    height: auto;
+}
+.result_caption{
+    margin-top: 50px;
+    font-size: 25pt;
+    text-indent: 1em;
+}
+.result_caption_list{
+    list-style-type: circle;
+    text-indent: 0;
+    font-size: 12pt;
+}
+.result_table{
+    width: 900px;
+    height: auto;
+}
+.result_title{
+    list-style-type: none;
+    width: 900px;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-size: 15pt;
+    font-weight: 800;
+    text-align: center;
+    border-top: 1px solid black;
+}
+.result_li{
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 11pt;
+    border-top: 1px solid black;
+    border-left: 1px solid black;
+}
+.result_cont{
+    font-weight: 800;
+    list-style-type: none;
+    width: 900px;
+    height: auto;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.result_type{
+    width: 10%;
+    border-left: 0;
+    line-height: 45px;
+    text-align: center;
+}
+.result_point{
+    width: 50%;
+}
+.result_job{
+    width: 40%;
+}
+.result_table:last-child{
+    border-bottom: 2px solid black;
+}
+.title{
+    text-align: center;
+    font-size: 25pt;
+    font-weight: 800;
+}
+.caption_list{
+    padding-left: 25px;
+    font-size: 20pt;
+    list-style-type: decimal;
+}
+.caption_list li{
+    font-size: 15pt;
+    font-weight: 800;
+}
+.test_wrap{
+    width: 900px;
+    height: auto;
+}
+.test_title{
+    list-style-type: none;
+    width: 900px;
+    height: 40px;
+    line-height: 40px;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    font-size: 15pt;
+    font-weight: 800;
+    text-align: center;
+}
+.test_title .num{
+    line-height: 40px;
+}
+.test_title .check{
+    line-height: 40px;
+}
+.test_li{
+    height: 45px;
+    font-size: 12pt;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-top: 3px solid #3DB7CC;
+    border-left: 3px solid #3DB7CC;
+}
+.test_cont{
+    list-style-type: none;
+    width: 900px;
+    height: auto;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.test_cont_odd{
+    list-style-type: none;
+    width: 900px;
+    height: auto;
+    display: flex;
+    padding: 0;
+    margin: 0;
+}
+.num{
+    line-height: 45px;
+    width: 5%;
+    text-align: center;
+    border-left: 0;
+    vertical-align: middle;
+}
+.type{
+    width: 42.5%;
+    font-weight: 800;
+}
+.check{
+    line-height: 45px;
+    width: 5%;
+    text-align: center;
+}
+.test_wrap .test_title:nth-child(2n){
+    background-color: #dbf1f5;
+}
+.test_cont:nth-child(even){
+    background-color: #dbf1f5;
+}
+.test_cont_odd:nth-child(2n){
+    background-color: #dbf1f5;
+}
+.test_cont .sum, .test_cont_odd .sum{
+    font-size: 15pt;
+    font-weight: 800;
+    height: 30px;
+    line-height: 30px;
+}
+.test_cont .sum1, .test_cont_odd .sum1{
+    font-size: 15pt;
+    font-weight: 800;
+    height: 30px;
+    line-height: 30px;
+}
+.sum_check{
+    height: 30px;
+    line-height: 30px;
+    width: 4.7%;
+    text-align: center;
+}
+.sum{
+    padding-left: 5px;
+    border-left: 0;
+    width: 46.4%;
+}
+.sum1{
+    width: 40.2%;
+}
+.result{
+    border-top: 3px solid #3DB7CC;
+    border-left: 0;
+    padding-left: 5px;
+    width: 100%;
+    font-size: 15pt;
+    font-weight: 800;
+    height: 40px;
+    line-height: 40px;
+}
+.result_last{
+    border-top: 3px solid #3DB7CC;
+    border-bottom: 3px solid #3DB7CC;
+    border-left: 0;
+    padding-left: 5px;
+    width: 100%;
+    font-size: 15pt;
+    font-weight: 800;
+    height: 40px;
+    line-height: 40px;
+}
+.result input{
+    margin: 0;
+    width: 20px;
+    height: 20px;
+}
+.empty{
+    border-left: 0;
+    width: 100%;
+    height: 30px;
+    background-color: rgb(218, 218, 218);
+}
+.result_info{
+    font-size: 13pt;
+    width: 900px;
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+}
+.result_info div{
+    line-height: 40px;
+    width: 5%;
+}
+.result_info .result_border{
+    width: 20%;
+    border-bottom: 3px solid black;
+}
+.result_info .result_input{
+    width: 45%;
+}
+.result_input input{
+    width: 30px;
+    height: 30px;
+}
+.source{
+    width: 900px;
+    font-weight: 800;
+    margin-top: 10px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+}

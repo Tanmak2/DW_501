@@ -1,0 +1,29 @@
+table{
+    border: 2px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 0px;
+}
+
+table tr td{
+    border: 1px solid black;
+    width: 100px;
+    height: 40px;
+    text-align: right;
+}
+table tr th{
+    border: 1px solid black;
+    width: 100px;
+    height: 30px;
+    background-color: skyblue;
+}
+.top tr td{
+    border: 1px solid black;
+    width: 205px;
+    text-align: right;
+}
+p{
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
+}

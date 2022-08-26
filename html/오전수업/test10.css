@@ -1,0 +1,77 @@
+/* table_test.css */
+
+/* id가 one을 가진 태그의 하위태그인 td에 style적용 */
+#one td{
+    border: 1px solid black;
+    width: 100px;
+    height: 50px;
+}
+#two td{
+    border: 3px solid red;
+    width: 200px;
+    height: 80px;
+}
+#three td{
+    border: 1px solid blue;
+    height: 30px;
+}
+
+/* :hover -> 마우스가 해당위치에 올라와있는상태 */
+#one:hover td{
+    border: 3px solid green;
+}
+/* id가 one인 태그위에 마우스가 올라오면,
+   해당태그의 하위 태그인 td에 style을 적용하겠다. */
+#two:hover{
+    background: pink;
+}
+.color{
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+}
+.black{
+    background: black;
+    color: white;
+}
+.blue{
+    background: blue;
+}
+.red{
+    background: red;
+}
+.green{
+    background: green;
+}
+.yellow{
+    background: yellow;
+}
+.color_box td{
+    border: 1px solid black;
+    width: 30px;
+    height: 30px;
+}
+.box_red:hover{
+    background-color: red;
+}
+.box_orange:hover{
+    background-color: orange;
+}
+.box_yellow:hover{
+    background-color: yellow;
+}
+.box_green:hover{
+    background-color: green;
+}
+.box_blue:hover{
+    background-color: blue;
+}
+.box_darkblue:hover{
+    background-color:  darkblue;
+}
+.box_blueviolet:hover{
+    background-color: blueviolet;
+}
+.box_pink:hover{
+    background-color: pink;
+}

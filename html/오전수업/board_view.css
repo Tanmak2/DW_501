@@ -1,0 +1,67 @@
+#write_box{
+    width: 100%;
+    height: auto;
+    margin-top: 100px;
+}
+#write_wrap{
+    width: 800ox;
+    height: auto;
+    margin: 0 auto;
+}
+.move_list{
+    width: 100px;
+    height: 40px;
+}
+.write_form{
+    width: 800px;
+    height: 40px;
+}
+.box{
+    display: flex;
+    width: 800px;
+    height: 40px;
+    line-height: 40px;
+    margin-bottom: 20px;
+}
+.box_top{
+    display: flex;
+}
+.box_top .box .box_input input{
+    width: 200px;
+}
+.box_title{
+    width: 150px;
+    padding-right: 15px;
+    text-align: right;
+    font-size: 25px;
+}
+.box_input input{
+    height: 20px;
+    width: 300px;
+}
+.box_input textarea{
+    width: 600px;
+    height: 400px;
+    resize: none;
+}
+.content_box{
+    height: auto;
+}
+#list_bt, #edit_bt, #delete_bt{
+    width: 150px;
+    height: 40px;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    font-size: 15pt;
+    font-weight: 800;
+    margin-left: 80px;
+}
+.bt{
+    display: flex;
+    width: 800px;
+    height: 50px;
+    margin-left: 85px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}

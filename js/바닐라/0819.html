@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="memo" type="text">
+    <input id="name" type="text">
+    <input id="apple" type="text">
+    <button onclick="test()">확인</button>
+
+    <h3>숫자 입력 받기</h3>
+    <input id="num" type="number">
+    <button onclick="test02()">확인</button>
+
+    <h3>주문 수량 받기</h3>
+    <input id="count" type="text">
+    <button onclick="test03()">주문</button>
+
+    <h3>메뉴 선택 하기</h3>
+    <select id="menu">
+        <option value="앗!메리카노">앗!메리카노</option>
+        <option value="원조커피">원조커피</option>
+        <option value="빽스치노">빽스치노</option>
+        <option value="연유라떼">연유라떼</option>
+    </select>
+    <button onclick="test04()">선택 완료</button>
+</body>
+<script>
+    function test(){
+        var memo = document.getElementById("memo").value;
+        var name = document.getElementById("name").value;
+        var apple = document.getElementById("apple").value;
+        alert(memo+","+name+","+apple);
+    }
+    function test02(){
+        var num = document.getElementById("num").value;
+        if(num >= 10){
+            alert("10 이상입니다")
+        }
+        else{
+            alert("10 미만입니다")
+        }
+    }
+    function test03(){
+        var count = document.getElementById("count").value;
+        if(count >= 20){
+            alert("죄송합니다. 1인당 20개 미만으로 주문 가능합니다.")
+        }
+        else{
+            alert("주문이 완료되었습니다.")
+        }
+    }
+    function test04(){
+        var menu = document.getElementById("menu").value;
+        if(menu == "원조커피"){
+            alert("선택한 메뉴는 "+menu);
+        }
+        else if(menu == "빽스치노")
+        {
+            alert("죄송합니다. "+menu+"는 품절입니다.");
+        }
+    }
+</script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body, div, select, input, textarea{
+            margin: 0;
+            padding: 0;
+        }
+        #main_wrap{
+            width: 300px;
+            height: 500px;
+            margin: 100px auto;
+            padding: 10px;
+            background-color: lightgray;
+        }
+        #top{
+            margin: 30px 0 0 0;
+            text-align: center;
+            font-size: 25px;
+            font-weight: 800;
+        }
+        .input_wrap{
+            height: 30px;
+            margin: 10px auto;
+        }
+        .input_wrap input[type=number]{
+            height: 30px;
+            width: 100%;
+        }
+        .input_wrap select{
+            height: 30px;
+            width: 100%;
+        }
+        .textarea_wrap{
+            height: 200px;
+        }
+        .textarea_wrap textarea{
+            height: 200px;
+        }
+        .btn>input{
+            height: 30px;
+            width: 100%;
+            background-color: #3264FF;
+            border: 0;
+            border-radius: 5px;
+            color: white;
+            font-size: 15px;
+            font-weight: 800;
+        }
+        .btn>input:hover{
+            background-color: white;
+            color: #3264FF;
+            transition: 1s;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="main_wrap">
+        <div id="top">
+            빽다방 메뉴
+        </div>
+        <div class="input_wrap">
+            <select>
+                <option>메뉴를 선택해주세요.</option>
+                <option>아메리카노</option>
+                <option>카페라떼</option>
+                <option>돌체라떼</option>
+            </select>
+        </div>
+        <div class="input_wrap">ICED : <input type="radio" name="type"> HOT : <input type="radio" name="type"></div>        
+        <div class="input_wrap">L size : <input type="radio" name="size"> M size : <input type="radio" name="size"> </div>
+        <div class="input_wrap">
+            <input type="number" placeholder="수량을 입력해주세요">
+        </div>
+        <div class="textarea_wrap">
+            <textarea cols="35" rows="10" placeholder="추가 사항이 있으면 적어주세요."></textarea>
+        </div>
+        <div class="input_wrap btn">
+            <input type="button" value="주문 완료">
+        </div>
+    </div>
+</body>
+</html>

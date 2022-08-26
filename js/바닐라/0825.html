@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="yourId" type="text" placeholder="아이디 입력">
+    <input id="yourPassword" type="password" placeholder="비밀번호 입력">
+    <input id="reYourPassword" type="password" placeholder="비밀번호 재입력">
+    <input id="yourEmail" type="email" placeholder="이메일 입력">
+    <button onclick="doJoin()">회원 가입</button>
+</body>
+<script>
+    function doJoin(){
+        var data = document.getElementById('yourId').value;
+        if(data == ''){
+            alert('아이디를 입력해주세요');
+            document.getElementById('yourId').focus();
+            return false;
+        }
+        var password = document.getElementById('yourPassword').value;
+        if(password == ''){
+            alert('비밀번호를 입력해주세요');
+            document.getElementById('yourPassword').focus();
+            return false;
+        }
+        var rePassword = document.getElementById('reYourPassword').value;
+        if(rePassword == ''){
+            alert('비밀번호를 재입력해주세요');
+            document.getElementById('reYourPassword').focus();
+            return false;
+        }
+        var email = document.getElementById('yourEmail').value;
+        if(email == ''){
+            alert('이메일을 입력해주세요');
+            document.getElementById('yourEmail').focus();
+            return false;
+        }
+        if(password != rePassword){
+            alert('비밀번호가 일치하지않습니다. 다시 입력해주세요');
+            document.getElementById('yourPassword').focus();
+            return false;
+        }
+        alert('회원가입 완료')
+        
+    }
+</script>
+</html>
