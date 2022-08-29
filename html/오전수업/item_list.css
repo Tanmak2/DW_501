@@ -61,3 +61,20 @@
     height: 500px;
     margin-bottom: 20px;
 }
+.item{
+    width: 380px;
+    height: 500px;
+    padding: 0 10px 0 10px;
+}
+.item_img{
+    width: 380px;
+    height: 390px;
+}
+.item_img img{
+    max-width: 380px;
+}
+.item_money, .item_title, .item_content{
+    width: 380px;
+    text-align: center;
+    margin-bottom: 5px;
+}
