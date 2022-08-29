@@ -19,12 +19,34 @@
         
         img_title = decodeURI(img_title);
 
-        alert(img_name);
-        alert(img_type);
-        alert(img_title);
+        // alert(img_name);
+        // alert(img_type);
+        // alert(img_title);
+
+
     </script>
 </head>
 <body>
-    
+    <div id="view_box">
+        <div id="view_wrap">
+            <div id="title">
+                제목 : <b id="title_view"></b>
+            </div>
+            <div id="image">
+                <img id="image_view">
+            </div>
+            <div id="bt">
+                <a href="image_board.html">목록</a>
+                <a href="">수정</a>
+                <a href="">삭제</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+<script>
+        var tview = document.querySelector("#title_view");
+        tview.innerHTML = img_title;
+        var img = document.querySelector("#image_view");
+        img.setAttribute("src", img_name+"."+img_type);
+</script>
