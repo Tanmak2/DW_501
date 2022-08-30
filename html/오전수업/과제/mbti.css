@@ -201,10 +201,13 @@
     height: 40px;
     line-height: 40px;
 }
+.result_last input{
+    width: 15px;
+    height: 15px;
+}
 .result input{
-    margin: 0;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
 }
 .empty{
     border-left: 0;
@@ -225,6 +228,9 @@
 }
 .result_info .result_border{
     width: 20%;
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
     border-bottom: 3px solid black;
 }
 .result_info .result_input{

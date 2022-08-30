@@ -44,7 +44,6 @@ btn9 = Button(frame_bot, text="9", width=10, command=lambda:textadd(9))
 
 btn_min.grid(row=4, column=1)
 btn_plus.grid(row=4, column=3)
-
 btn0.grid(row=4, column=2)
 btn1.grid(row=3, column=1)
 btn2.grid(row=3, column=2)

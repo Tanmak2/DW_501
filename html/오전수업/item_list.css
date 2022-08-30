@@ -78,3 +78,14 @@
     text-align: center;
     margin-bottom: 5px;
 }
+.item_money{
+    font-size: 20px;
+    font-weight: 800;
+}
+.item:hover{
+    border: 1px solid red;
+    cursor: pointer;
+}
+.item:hover .i{
+    text-decoration: underline;
+}
