@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var three = 3;
+    for(var i=1; i<=9; i++){
+        console.log(three+"x"+i+" = "+three*i);
+    }
+    for(var i=1; i<=30; i++){
+        console.log(i);
+    }
+    var count = 0;
+    for(var i=1; i<=30; i++){
+        if(i%2 == 0){
+            count++;
+            console.log("짝수갯수 : "+count);
+        }
+        if(count >= 5){
+            console.log("짝수갯수가 5개 넘었으므로 for문 정지");
+            break;
+        }
+    }
+</script>
+</html>
