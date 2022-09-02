@@ -199,4 +199,92 @@ body, div, ul{
 }
 .m_right{
     width: 30%;
+    float: left;
+}
+.conbanner{
+    border: 1px solid #dadee1;
+    box-sizing: border-box;
+    padding: 11px 15px;
+    height: 88px;
+}
+.conbanner h2{
+    margin: 0;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+.conbanner p{
+    font-size: 88%;
+    line-height: 18px;
+}
+#bottom{
+    height: 152px;
+    border: 1ps solid #e7e7e7;
+    margin-bottom: 0px;
+    margin-top: 40px;
+}
+.time{
+    width: 322px;
+    float: left;
+    padding: 20px 0 20px 20px;
+    background: #efefed url(bg_tel.jpg) no-repeat right 0;
+    height: 112px;
+}
+.time h2{
+    margin-top: 0;
+    font-size: 15px;
+}
+.time dl{
+    font-size: 11px;
+    line-height: 18px;
+}
+.time dl dt{
+    float: left;
+    font-weight: 600;
+    padding-right: 8px;
+}
+.proce img{
+    width: 658px;
+    height: 152px;
+}
+#footwrap{
+    background: #3d3d3d;
+    width: 100%;
+    margin-top: 30px;
+    position: relative;
+}
+#foot{
+    margin: 0 auto;
+    width: 1000px;
+    padding: 24px;
+    position: relative;
+}
+#foot ul{
+    margin: 0;
+    list-style: none;
+    margin-bottom: 5px;
+    overflow: hidden;
+    padding: 0;
+}
+#foot ul li{
+    float: left;
+    padding-right: 13px;
+    font-size: 14px;
+    margin-right: 13px;
+    border-right: 1px solid #6d6d6d;
+}
+#foot ul li:last-child{
+    border: 0;
+}
+#foot address{
+    margin: 3px 20px 2px 0;
+    color: #f1f1f1;
+    line-height: 20px;
+    font-size: 13px;
+    display: inline-block;
+    font-style: normal;
+}
+.foot_logo{
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }

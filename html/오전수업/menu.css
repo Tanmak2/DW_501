@@ -1,0 +1,34 @@
+#menu{
+    width: 1000px;
+    height: 80px;
+}
+#menu ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+#main_menu{
+    width: 1000px;
+    height: 80px;
+    position: relative;
+}
+#main_menu>li{
+    width: 200px;
+    height: 80px;
+    float: left;
+    line-height: 80px;
+    text-align: center;
+    background-color: pink;
+    position: relative;
+}
+#main_menu .sub{
+    display: none;
+    -webkit-transition: all 1s;
+}
+#main_menu:hover .sub{
+    display: block;
+    background-color: lightgoldenrodyellow;
+    height: 320px;
+    transition: 2s;
+}
