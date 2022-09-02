@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var array = [10,4,8,19,20];
+    console.log(array[1]);
+
+    var x = array[1];
+    if(x == 4){
+        console.log('x는 '+x+" 입니다.");
+    }
+
+    console.log(array[4]);
+
+    var size = array.length;
+    console.log(array[size-1]);
+
+    
+    //문제1. for문을 이용해서 배열안에 있는 값을 출력하시오.
+    for(var i=0; i<size; i++){
+        console.log(array[i]);
+    }
+    
+    //문제2. for문을 이용해서 오리지널 도넛이 몇개 들어있는지 출력하시요.
+    var donut = ['오리지널 도넛','오리지널 도넛','오리지널 도넛','초코 도넛'];
+    var count = 0;
+    for(var i=0; i<donut.length; i++){
+        if(donut[i] == '오리지널 도넛'){
+            count++;
+        }
+    }
+    console.log('배열안에 오리지널 도넛의 갯수는 : '+count);
+
+    //문제3. 스타벅스 대흥점이 몇번째에 있는지 for문을 이용해서 출력
+    var cafe = ['스타벅스 터미널점','스타벅스 대흥점','스타벅스 둔산점'];
+
+    for(var i=0; i<cafe.length; i++){
+        if(cafe[i] == '스타벅스 대흥점'){
+            console.log('스타벅스 대흥점은 '+i+'번에 있습니다.');
+            break;
+        }
+    }
+
+    //문제2. for문을 이용해서 전사, 마법사, 도적 각 몇명인지 출력하시오.
+    var charachter = ['전사','전사','전사','마법사','마법사','도적','도적'];
+    var warrior = 0;
+    var magician = 0;
+    var thief = 0;
+    for(var i=0; i<charachter.length; i++){
+        if(charachter[i] == '전사'){
+            warrior++;
+        }
+        if(charachter[i] == '마법사'){
+            magician++;
+        }
+        if(charachter[i] == '도적'){
+            thief++;
+        }
+    }
+    console.log('전사 : '+warrior+'명');
+    console.log('마법사 : '+magician+'명');
+    console.log('도적 : '+thief+'명');
+
+    //문제3. 배열안에 있는 10하고 20을 더한 값을 출력하시오. (for문 사용하지 말고)
+    var num = [10,20];
+    var n1 = num[0];
+    var n2 = num[1];
+    var sum = n1+n2;
+    console.log('배열안에 값 더하면 : '+(num[0]+num[1]));
+    console.log('배열안에 값 더하면 : '+sum);
+
+    //문제 for문 사용하지말고 10,20,30을 모두 더하시오 60출력!
+    var num2 = [10,20,30];
+    var n1 = num2[0];
+    var n2 = num2[1];
+    var n3 = num2[2];
+    var result = 0;
+    console.log('결과는 : '+result);
+    console.log('결과는 : '+(num2[0]+num2[1]+num2[2]));
+
+    for(var i=0; i<num2.length; i++){
+        result += num2[i];
+    }
+    console.log('결과는 gd: '+result);
+
+</script>
+</html>
