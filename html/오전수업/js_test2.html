@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        // var tall = parseInt(prompt('키입력'));
+        // var result = tall >= 130 ? "바이킹 탑승가능" : "바이킹 탑승불가";
+        // document.write(result);
+
+        // var num1 = parseInt(prompt('숫자1입력'));
+        // var num2 = parseInt(prompt('숫자2입력'));
+        // var num3 = parseInt(prompt('숫자3입력'));
+
+        // var result = num1 > num2 ? num1 > num3 ? '제일큰수 num1' : '제일큰수 num3' : num2 > num3 ? '제일큰수 num2' : '제일큰수 num3';
+        // document.write(result);
+
+        // var num = parseInt(prompt('숫자입력'));
+
+        // var result = num % 4 == 0 ? '4의 배수' : '4의 배수 아님';
+        // document.write(result);
+
+        var min = parseInt(prompt('분'));
+        var basic = 1000;
+        var add = 100;
+
+        var result = min >= 120 ? parseInt((min - 120) / 10) *add + basic + 500 + '원' : min >= 40 ? parseInt((min - 30) / 10) * add + basic + '원'  : basic + '원';
+        document.write(result);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
