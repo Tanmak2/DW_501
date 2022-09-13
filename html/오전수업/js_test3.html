@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_if.html</title>
+
+<script type="text/javascript">
+
+// var num1 = parseInt(prompt('숫자1 입력'));
+// var num2 = parseInt(prompt('숫자2 입력'));
+
+// if(num1 > num2){
+//     document.write(num1);
+// }
+// else{
+//     document.write(num2);
+// }
+
+// var my = parseInt(prompt('앞면 : 1 뒷면 : 2 입력'));
+// var coin = Math.floor(Math.random() * 2) + 1;
+// if(my == coin){
+//     document.write('입력한 값 : ' + my);
+//     document.write('랜덤값 : ' + coin);
+// }
+// else{
+//     document.write('입력한 값 : ' + my);
+//     document.write('랜덤값 : ' + coin);
+// }
+
+var user1 = Math.floor(Math.random()*6)+1;
+var user2 = Math.floor(Math.random()*6)+1;
+var com1 = Math.floor(Math.random()*6)+1;
+var com2 = Math.floor(Math.random()*6)+1;
+
+
+var com_sum = com1 + com2;
+var user_sum = user1 + user2;
+
+if(com_sum > user_sum){
+    if(user1 == user2)
+    {
+        if(com1 == com2){
+            alert('컴퓨터승리 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);
+        }
+        else{
+            alert('유저승리 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);
+        }
+    }
+    else{
+        alert('컴퓨터승리 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);
+    }    
+}
+else if(com_sum == user_sum){
+    if(com1 == com2){
+        if(user1 == user2){
+            alert('유저승리 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);
+        }
+        else{
+            alert('컴퓨터승리 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);
+        }
+    }
+    else{
+        alert('비김 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);
+    }
+}
+else{
+    if(com1 == com2){
+        if(user1 == user2){
+            alert('유저승리 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);    
+        }
+        else{
+            alert('컴퓨터승리 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);
+        }
+    }
+    else{
+        alert('유저승리 ! ' + 'com1 : ' + com1 + 'com2 : ' + com2 + "user1 : " + user1 + 'user2 : ' +user2);
+    }
+}
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>
