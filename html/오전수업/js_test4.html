@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        // user = parseInt(prompt("1.가위 2.바위 3.보"));
+        // com = Math.floor(Math.random()*3)+1;
+
+        // if(user == 1 && com == 3 || user == 2 && com == 1 || user == 3 && com == 2){
+        //     alert(user+" 유저승 "+com);
+        // }
+        // else if(user == com){
+        //     alert(user+" 비김 "+com)
+        // }
+        // else{
+        //     alert(user+" 컴퓨터승 "+com);
+        // }
+        
+        var hour = parseInt(prompt("시간입력"));
+        var minute = parseInt(prompt("분입력"));
+        var hourToMinute = hour * 6;
+        var pay8 = 5000;
+        var pay4 = 2700;
+        var pay2 = 1700;
+        var pay = 1000;
+        var addpay = parseInt(minute / 10);
+
+        if(hour >= 8){
+            alert("주차시간 : " + hour + "시간 " + minute + "분 " + " 주차요금 : " + pay8);
+        }
+        else if(hour >= 4 && hour < 8){
+            if(addpay >= 1){
+                alert("주차시간 : " + hour + "시간 " + minute + "분 " + " 주차요금 : " + (pay4 + (addpay + hourToMinute - 24) * 100));
+            }
+            else{
+                alert("주차시간 : " + hour + "시간 " + minute + "분 " + " 주차요금 : " + pay4);
+            }
+            
+        }
+        else if(hour >= 2 && hour < 4){
+            if(addpay >= 1){
+                alert("주차시간 : " + hour + "시간 " + minute + "분 " + " 주차요금 : " + (pay2 + (addpay + hourToMinute - 12) * 100));
+            }
+            else{
+                alert("주차시간 : " + hour + "시간 " + minute + "분 " + " 주차요금 : " + pay2);
+            }
+        }
+        else if(hour >= 1){
+            alert("주차시간 : " + hour + "시간 " + minute + "분 " + " 주차요금 : " + (pay + (addpay + 3) * 100));
+        }
+        else{
+            if(minute >= 40){
+                alert("주차시간 : " + hour + "시간 " + minute + "분 " + " 주차요금 : " + (pay + (addpay - 3) * 100));
+            }
+            else{
+                alert("주차시간 : " + hour + "시간 " + minute + "분 " + " 주차요금 : " + pay);
+            }
+        }
+
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

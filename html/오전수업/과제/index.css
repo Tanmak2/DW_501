@@ -44,7 +44,6 @@ body{
     width: 1200px;
     height: 700px;
     display: flex;
-    background-color: beige;
 }
 #side_wrap{
     width: 300px;
@@ -53,12 +52,67 @@ body{
 .login_wrap{
     width: 260px;
     height: auto;
-    margin: 20px 20px;
-    float: left;
-    background-color: aquamarine;
+    margin: 20px auto;
+}
+.input_wrap{
+    width: 260px;
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+.input_wrap input{   
+    width: 170px;
+    height: 30px;
+    border-radius: 5px;
+    border: 0;
+    background-color: #999;
+    margin: 0;
+    padding: 0;
+}
+.title{
+    height: 30px;
+    line-height: 30px;
+}
+.login_wrap button{
+    width: 260px;
+    height: 30px;
+    border: 0;
+    border-radius: 5px;
+    background-color: #78c341;
+    color: white;
+    margin-bottom: 10px;
+}
+.join_wrap{
+    display: flex;
+    justify-content: space-between;
 }
 #middle_area{
     width: 900px;
     height: 700px;
     background-color: burlywood;
+}
+.menu_wrap{
+    width: 260px;
+    height: auto;
+    margin: 0 20px;
+}
+.menu_bt button{
+    width: 260px;
+    height: 50px;
+    margin-bottom: 10px;
+    background-color: #78c341;
+    border: 0;
+    border-radius: 10px;
+    font-size: 30px;
+    color: white;
+
+}
+.center_img{
+    width: 500px;
+    height: 300px;
+    background-color: cornflowerblue;
+    margin: 0 auto;
+    margin-top: 20px;
 }
