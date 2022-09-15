@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript">
+        function data_push(){
+            var number = document.getElementById("num").value;
+            var res = document.getElementById("result");
+            if(number % 2 == 0 ){
+                res.innerHTML = "짝수";
+            }
+            else{
+                res.innerHTML = "홀수";
+            }
+        }
+        document.getElementById("num");
+
+
+    </script>
+</head>
+<body>
+    <input type="text" name="num" id="num">
+    <button type="button" onclick="data_push()">입력</button>
+    <hr>
+    <div id="result"></div>
+</body>
+</html>
