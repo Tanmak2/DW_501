@@ -67,6 +67,7 @@ body{
     margin: 0 auto;
     font-size: 20px;
     text-align: center;
+    color: white;
 }
 .input_wrap{
     width: 260px;
@@ -75,15 +76,6 @@ body{
     justify-content: space-between;
     font-size: 20px;
     margin-bottom: 10px;
-}
-.input_wrap input{   
-    width: 170px;
-    height: 30px;
-    border-radius: 5px;
-    border: 0;
-    background-color: #999;
-    margin: 0;
-    padding: 0;
 }
 .title{
     height: 30px;

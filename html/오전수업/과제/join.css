@@ -43,7 +43,6 @@ body{
 #middle_wrap{
     width: 1200px;
     height: 700px;
-    background-color: aliceblue;
 }
 .join_wrap{
     width: 400px;
@@ -74,7 +73,7 @@ body{
     height: 25px;
     border-radius: 5px;
     border: 0;
-    background-color: #999;
+    background-color: gainsboro;
 }
 .join_bt{
     width: 300px;
