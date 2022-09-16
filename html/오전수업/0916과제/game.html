@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="game.css">
+<script>
+    
+</script>
+</head>
+<body onload="textChange()">
+    <div id="main_wrap">
+        <div class="rsp_wrap">
+            <div class="game_title">가위 바위 보!</div>
+            <div class="com_wrap">
+                <div id="result1"></div>
+                <div class="rsp_img" id="rspChange">✊</div>
+                <div id="result2"></div>
+            </div>
+            <div class="user_wrap">
+                <div class="rock">
+                    <button id="rock_bt" name="0" onclick="clicks(this)">✊</button>
+                </div>
+                <div class="scissors">
+                    <button id="scissors_bt" name="1" onclick="clicks(this)">✌</button>
+                </div>
+                <div class="paper">
+                    <button id="paper_bt" name="2" onclick="clicks(this)">🖐</button>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="dice_wrap">
+            <div class="game_title">주사위 굴리기!</div>
+            <div class="com_wrap">
+                <div class="com_dice"><img src="dice1.png" id="c_d_1"></div>
+                <div class="com_dice"><img src="dice2.png" id="c_d_2"></div>
+                <div class="com_dice"><img src="dice3.png" id="c_d_3"></div>
+            </div>
+            <div class="user_wrap">
+                <div class="user_dice"><img src="dice4.png" id="u_d_1"></div>
+                <div class="user_dice"><img src="dice5.png" id="u_d_2"></div>
+                <div class="user_dice"><img src="dice6.png" id="u_d_3"></div>
+            </div>
+            <div class="dice_bt_wrap">
+                <div class="dice_start">
+                    <button onclick="diceChange()">굴리기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    var rsp_count = 0;
+    var dice_count = 1;
+    var rsp_text = document.getElementById("rspChange");
+    var result1 = document.getElementById("result1");
+    var result2 = document.getElementById("result2");
+    var com_dice1 = document.getElementById("c_d_1");
+    var rsp_animate;
+    var dice_animate;
+    function textChange(){
+        result1.innerHTML = "";
+        result2.innerHTML = "";
+        if(rsp_count == 0){
+            rsp_text.innerHTML = "✊";
+            rsp_count++;
+        }
+        else if(rsp_count == 1){
+            rsp_text.innerHTML = "✌";
+            rsp_count++;
+        }
+        else{
+            rsp_text.innerHTML = "🖐";
+            rsp_count = 0;
+        }
+        rsp_animate = setTimeout(textChange,100);
+    }
+    function diceChange(){
+        if(dice_count == 1){
+            com_dice1.src = "dice"+dice_count+".png";
+            dice_count++;
+        }
+        else if(dice_count == 2){
+            com_dice1.src = "dice"+dice_count+".png";
+            dice_count++;
+        }
+        else if(dice_count == 3){
+            com_dice1.src = "dice"+dice_count+".png";
+            dice_count++;
+        }
+        else if(dice_count == 4){
+            com_dice1.src = "dice"+dice_count+".png";
+            dice_count++;
+        }
+        else if(dice_count == 5){
+            com_dice1.src = "dice"+dice_count+".png";
+            dice_count++;
+        }
+        else{
+            com_dice1.src = "dice"+dice_count+".png";
+            dice_count = 1;
+        }
+        dice_animate = setTimeout(diceChange,100);
+    }
+    function clicks(rsp){
+        clearTimeout(rsp_animate);
+        var com = Math.floor(Math.random()*3)+1;
+        var user = rsp.id;
+        if(user == "rock_bt"){
+            if(com == 0){
+                rsp_text.innerHTML = "✊";
+                result1.innerHTML = "비겼다🤝";
+                result2.innerHTML = "비겼다🤝";
+            }
+            else if(com == 1){
+                rsp_text.innerHTML = "✌";
+                result1.innerHTML = "이겼다👍";
+                result2.innerHTML = "이겼다👍";
+            }
+            else{
+                rsp_text.innerHTML = "🖐";
+                result1.innerHTML = "😭졌다😭";
+                result2.innerHTML = "😭졌다😭";
+            }
+        }
+        if(user == "scissors_bt"){
+            if(com == 0){
+                rsp_text.innerHTML = "✊";
+                result1.innerHTML = "😭졌다😭";
+                result2.innerHTML = "😭졌다😭";
+            }
+            else if(com == 1){
+                rsp_text.innerHTML = "✌";
+                result1.innerHTML = "비겼다🤝";
+                result2.innerHTML = "비겼다🤝";
+            }
+            else{
+                rsp_text.innerHTML = "🖐";
+                result1.innerHTML = "이겼다👍";
+                result2.innerHTML = "이겼다👍";
+            }
+        }
+        if(user == "paper_bt"){
+            if(com == 0){
+                rsp_text.innerHTML = "✊";
+                result1.innerHTML = "이겼다👍";
+                result2.innerHTML = "이겼다👍";
+            }
+            else if(com == 1){
+                rsp_text.innerHTML = "✌";
+                result1.innerHTML = "😭졌다😭";
+                result2.innerHTML = "😭졌다😭";
+            }
+            else{
+                rsp_text.innerHTML = "🖐";
+                result1.innerHTML = "비겼다🤝";
+                result2.innerHTML = "비겼다🤝";
+            }
+        }
+        rsp_animate = setTimeout(textChange,2000);
+    }
+</script>
+</html>
