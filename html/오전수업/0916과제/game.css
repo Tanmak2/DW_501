@@ -120,3 +120,109 @@
     width: 200px;
     height: 200px;
 }
+.dice_bt_wrap{
+    width: 700px;
+    height: 200px;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.dice_result_wrap{
+    width: 700px;
+    height: 80px;
+    display: flex;
+    margin-bottom: 30px;
+}
+.score_wrap{
+    width: 300px;
+    height: 80px;
+}
+#com_score{
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+}
+#user_score{
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 20px;
+}
+#dice_result{
+    width: 400px;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    font-size: 40px;
+}
+.dice_start{
+    width: 200px;
+    height: 50px;
+    margin: 0 auto;
+}
+.dice_start button{
+    width: 200px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    background-color: mediumblue;
+    cursor: pointer;
+}
+.lotto_wrap{
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+}
+.lotto_box{
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    border-radius: 500px;
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 500px;
+}
+.lotto_box img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.lotto_result_box{
+    width: 700px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+.lotto_num_ball{
+    width: 100px;
+    height: 100px;
+}
+.lotto_num_ball img{
+    max-width: 100px;
+}
+.lotto_start{
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+.lotto_start button{
+    width: 200px;
+    height: 100px;
+    font-size: 40px;
+    border-radius: 10px;
+    border: 0;
+    color: white;
+    background-color: royalblue;
+    cursor: pointer;
+}
+.lotto_check_wrap{
+    width: 1200px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: brown;
+}
