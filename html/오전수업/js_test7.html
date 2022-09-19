@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #input_wrap{
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+        }
+        #input_wrap input{
+            height: 40px;
+            font-size: 1.7rem;
+        }
+    </style>
+    <script>
+        function execute(){
+            var number1 = document.getElementById("number1").value;
+            var number2 = document.getElementById("number2").value;
+            var result = document.getElementById("result");
+
+            if(number1 > number2){
+                result.innerHTML = number1;
+            }
+            else{
+                result.innerHTML = number2;
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="input_wrap">
+        <input type="text" id="number1" placeholder="정수입력">
+        <input type="text" id="number2" placeholder="정수입력">
+        <input type="button" onclick="execute()" value="입력">
+    </div>
+    <hr>
+    <div id="result"></div>
+</body>
+</html>
