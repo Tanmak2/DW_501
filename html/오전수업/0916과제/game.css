@@ -167,7 +167,7 @@
     border-radius: 10px;
     border: 0;
     color: white;
-    background-color: mediumblue;
+    background-color: royalblue;
     cursor: pointer;
 }
 .lotto_wrap{
@@ -221,8 +221,42 @@
     cursor: pointer;
 }
 .lotto_check_wrap{
-    width: 1200px;
-    height: 500px;
+    width: 500px;
+    height: 450px;
     margin: 0 auto;
-    background-color: brown;
+    background-color: antiquewhite;
+}
+.chk_title{
+    width: 500px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 40px;
+    background-color: aliceblue;
+}
+.lotto_num_box{
+    width: 400px;
+    height: auto;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+.chk_box{
+    width: 50px;
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.chk_box input{
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+.chk_num{
+    width: 20px;
+    height: 20px;
+    line-height: 15px;
+    font-size: 20px;
 }

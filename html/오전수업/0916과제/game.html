@@ -6,9 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="game.css">
-<script>
-    
-</script>
 </head>
 <body onload="textChange()">
     <div id="main_wrap">
@@ -21,13 +18,13 @@
             </div>
             <div class="user_wrap">
                 <div class="rock">
-                    <button id="rock_bt" name="0" onclick="clicks(this)">✊</button>
+                    <button id="rock_bt" onclick="clicks(this)">✊</button>
                 </div>
                 <div class="scissors">
-                    <button id="scissors_bt" name="1" onclick="clicks(this)">✌</button>
+                    <button id="scissors_bt" onclick="clicks(this)">✌</button>
                 </div>
                 <div class="paper">
-                    <button id="paper_bt" name="2" onclick="clicks(this)">🖐</button>
+                    <button id="paper_bt" onclick="clicks(this)">🖐</button>
                 </div>
             </div>
         </div>
@@ -75,14 +72,235 @@
                 <button onclick="lotto_start()">추첨하기</button>
             </div>
             <div class="lotto_check_wrap">
+                <div class="chk_title">로또 6개를 체크해주세요!</div>
                 <div class="lotto_num_box">
-
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num1"></div>
+                        <div class="chk_num">1</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num2"></div>
+                        <div class="chk_num">2</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num3"></div>
+                        <div class="chk_num">3</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num4"></div>
+                        <div class="chk_num">4</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num5"></div>
+                        <div class="chk_num">5</div>
+                    </div>
+                </div>
+                <div class="lotto_num_box">
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num6"></div>
+                        <div class="chk_num">6</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num7"></div>
+                        <div class="chk_num">7</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num8"></div>
+                        <div class="chk_num">8</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num9"></div>
+                        <div class="chk_num">9</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num10"></div>
+                        <div class="chk_num">10</div>
+                    </div>
+                </div>
+                <div class="lotto_num_box">
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num11"></div>
+                        <div class="chk_num">11</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num12"></div>
+                        <div class="chk_num">12</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num13"></div>
+                        <div class="chk_num">13</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num14"></div>
+                        <div class="chk_num">14</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num15"></div>
+                        <div class="chk_num">15</div>
+                    </div>
+                </div>
+                <div class="lotto_num_box">
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num16"></div>
+                        <div class="chk_num">16</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num17"></div>
+                        <div class="chk_num">17</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num18"></div>
+                        <div class="chk_num">18</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num19"></div>
+                        <div class="chk_num">19</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num20"></div>
+                        <div class="chk_num">20</div>
+                    </div>
+                </div>
+                <div class="lotto_num_box">
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num21"></div>
+                        <div class="chk_num">21</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num22"></div>
+                        <div class="chk_num">22</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num23"></div>
+                        <div class="chk_num">23</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num24"></div>
+                        <div class="chk_num">24</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num25"></div>
+                        <div class="chk_num">25</div>
+                    </div>
+                </div>
+                <div class="lotto_num_box">
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num26"></div>
+                        <div class="chk_num">26</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num27"></div>
+                        <div class="chk_num">27</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num28"></div>
+                        <div class="chk_num">28</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num29"></div>
+                        <div class="chk_num">29</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num30"></div>
+                        <div class="chk_num">30</div>
+                    </div>
+                </div>
+                <div class="lotto_num_box">
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num31"></div>
+                        <div class="chk_num">31</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num32"></div>
+                        <div class="chk_num">32</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num33"></div>
+                        <div class="chk_num">33</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num34"></div>
+                        <div class="chk_num">34</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num35"></div>
+                        <div class="chk_num">35</div>
+                    </div>
+                </div>
+                <div class="lotto_num_box">
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num36"></div>
+                        <div class="chk_num">36</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num37"></div>
+                        <div class="chk_num">37</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num38"></div>
+                        <div class="chk_num">38</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num39"></div>
+                        <div class="chk_num">39</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num40"></div>
+                        <div class="chk_num">40</div>
+                    </div>
+                </div>
+                <div class="lotto_num_box">
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num41"></div>
+                        <div class="chk_num">41</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num42"></div>
+                        <div class="chk_num">42</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num43"></div>
+                        <div class="chk_num">43</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num44"></div>
+                        <div class="chk_num">44</div>
+                    </div>
+                    <div class="chk_box">
+                        <div class="chk"><input type="checkbox" onclick="lotto_num_chk(this)" id="user_num45"></div>
+                        <div class="chk_num">45</div>
+                    </div>
                 </div>
             </div>
         </div>
+        <hr>
     </div>
+    <!-- <button onclick="test()">실행하기</button> -->
 </body>
 <script>
+    // function test(){
+    //     var main_wrap = document.getElementById("main_wrap");
+    //     main_wrap.innerHTML = "<div class="+"rsp_wrap"+">"
+    //                             +"<div class="+"game_title"+">가위 바위 보!</div>"
+    //                             +"<div class="+"com_wrap"+">"
+    //                             +"<div id="+"result1"+"></div>"
+    //                             +"<div class="+"rsp_img"+" id="+"rspChange"+">✊</div>"
+    //                             +"<div id="+"result2"+"></div>";
+    //     main_wrap.innerHTML +=  "<div class="+"user_wrap"+">"
+    //                             +"<div class="+"rock"+">"
+    //                             +"<button id="+"rock_bt"+" onclick="+"clicks(this)"+">✊</button>"
+    //                             +"</div>"
+    //                             +"<div class="+"scissors"+">"
+    //                             +"<button id="+"scissors_bt"+" onclick="+"clicks(this)"+">✌</button>"
+    //                             +"</div>"
+    //                             +"<div class="+"paper"+">"
+    //                             +"<button id="+"paper_bt"+" onclick="+"clicks(this)"+">🖐</button>"
+    //                             +"</div>"
+    //                             +"</div>"
+    //                             +"</div>"
+    //                             +"<hr>"
+    //                             +"</div>";
+    // }
     var rsp_count = 0;
     var dice_count = 1;
     var count = 0;
@@ -100,8 +318,8 @@
     var dice_result = document.getElementById("dice_result");
     var com_dices = new Array(3);
     var user_dices = new Array(3);
-    var lotto_nums = new Array(6);
-    var user_lotto = new Array(6);
+    var lotto_nums;
+    var user_lotto = new Array();
     var rsp_animate;
     var dice_animate;
     var lotto_animate;
@@ -302,10 +520,10 @@
     var isStart = true;
     function lotto_start(){
         if(isStart == true){
-            for(var i = 0; i<lotto_nums.length; i++){
-                var lotto_result_num = document.getElementById("lotto_num"+(i+1));
+            lotto_nums = new Array(1);
+            for(var i = 1; i <= 6; i++){
+                var lotto_result_num = document.getElementById("lotto_num"+i);
                 lotto_result_num.src = "";
-                lotto_nums[i] = 0;
                 isStart = false;
             }
         }
@@ -319,18 +537,23 @@
         }
         if(lotto_ran_count == 20){
             for(var i = 0; i < lotto_nums.length; i++){
-                if(lotto_nums[i] == lotto_ran){
+                if(parseInt(lotto_nums[i]) == parseInt(lotto_ran)){
                     isNum = true;
                     lotto_ran_count = 0;
                     break;
                 }
             }
             if(isNum == false){
-                lotto_nums[lotto_count] = lotto_ran;
-                var lotto_result_num = document.getElementById("lotto_num"+(lotto_count+1));
-                lotto_result_num.src = lotto_ran+".jpg";
+                lotto_nums[lotto_count] = parseInt(lotto_ran);
+                lotto_nums.sort(function (a, b){return a - b});
+                for(var i = 0; i < lotto_nums.length; i++){
+                    var lotto_result_num = document.getElementById("lotto_num"+(i+1));
+                    lotto_result_num.src = lotto_nums[i]+".jpg";
+                }
                 lotto_count++;
                 lotto_ran_count = 0;
+                clearTimeout(lotto_animate);
+                lotto_animate = setTimeout(lotto_start,1000);
             }
         }
         if(lotto_count == 6){
@@ -339,5 +562,25 @@
             isStart = true;
         }
     }
+    var chk_count = 0;
+    function lotto_num_chk(chk_number){
+        var user_chk = chk_number.id;
+        if(chk_number.checked == true)
+        {
+            if(chk_count == 6){
+            alert("최대 6개까지 선택가능합니다.");
+            chk_number.checked = false;
+            return;
+            }
+            user_lotto[chk_count] = user_chk.split("");
+            alert(user_lotto[chk_number]);
+            chk_count++;
+        }
+        if(chk_number.checked == false){
+            chk_count--;
+        }
+        
+    }
+
 </script>
 </html>
