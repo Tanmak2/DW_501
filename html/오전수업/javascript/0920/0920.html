@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+        function input_num(){
+            var num = document.getElementById("num").value;
+            var res = document.getElementById("result");
+            var i = 1;
+            var out = "";
+            while(i <= num){
+                out += i + "<br>";
+                i++;
+            }
+            res.innerHTML = out;
+        }
+        function select_coin(it){
+            
+            var res = document.querySelector("#result1");
+            // if(coin % 2 == 0 && it == "front"){
+            //     res.innerHTML = "앞면 , 정답";
+            // }
+            // else if(coin % 2 == 1 && it == "back"){
+            //     res.innerHTML = "뒷면 , 정답"
+            // }
+            // else{
+            //     res.innerHTML = "오답~ 다음에 다시";
+            // }
+
+            var out = "";
+            var i = 1;
+            var count = 0;
+            while(i <= 10){
+                var coin = Math.floor(Math.random()*10)+1;
+                switch(coin % 2){
+                case 0:
+                    switch(it){
+                        case "front":
+                            out += "앞면 , 정답 <br>";
+                            count++;
+                            break;
+                        case "back":
+                            out += "앞면 , 오답 <br>";
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch(it){
+                        case "front":
+                            out += "뒷면 , 오답 <br>";
+                            break;
+                        case "back":
+                            out += "뒷면 , 정답 <br>";
+                            count++;
+                            break;
+                    }
+                    break;
+                }
+                i++;
+            }
+            out += "정답확률 : " + count * 10 + "%";
+            
+            res.innerHTML = out;
+        }
+    </script>
+</head>
+<body>
+    <input type="number" id="num">
+    <button onclick="input_num()">반복하기</button>
+    <hr>
+    <div id="result"></div>
+    <hr>
+    <input type="button" value="앞면" onclick="select_coin('front')">
+    <input type="button" value="뒷면" onclick="select_coin('back')">
+    <hr>
+    <input type="number" id="row">
+    <input type="number" id="col">
+    <button onclick="make()">테이블생성</button>
+    <div id="result1"></div>
+</body>
+</html>
+<script>
+
+    function make(){
+        var res = document.getElementById("result1");
+        var row = document.getElementById("row").value;
+        var col = document.getElementById("col").value;
+        var out = "";
+        out += "<table>";
+        var i = 1;
+        while( i<=row){
+            out += "<tr>";
+            var k = 1;
+            while(k <= col){
+                out += "<td> a </td>";
+                k++;
+            }
+            out += "</tr>";
+            i++;
+        }
+        out += "</table>";
+
+        res.innerHTML = out;
+    }
+    
+</script>
+<style>
+    table tr td{
+        border: 1px solid black;
+        width: 50px;
+        height: 50px;
+        text-align: center;
+    }
+</style>
