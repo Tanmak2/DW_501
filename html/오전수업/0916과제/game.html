@@ -58,7 +58,7 @@
         <div class="lotto_wrap">
             <div class="game_title">로또 번호 맞추기</div>
             <div class="lotto_box">
-                <img src="1.jpg" id="lotto_ran_num">
+                <img src="1.png" id="lotto_ran_num">
             </div>
             <div class="lotto_result_box">
                 <div class="lotto_content">행운의 번호는 !</div>
@@ -529,6 +529,10 @@
     var isNum = false;
     var isStart = true;
     function lotto_start(){
+        if(chk_count < 6){
+            alert("번호 6개를 체크해주세요!");
+            return;
+        }
         if(isStart == true){
             lotto_nums = new Array(1);
             for(var i = 1; i <= 6; i++){
@@ -541,7 +545,7 @@
         lotto_animate = setTimeout(lotto_start,50);
         var lotto_ran = Math.floor(Math.random()*45)+1;
         var lotto_img = document.getElementById("lotto_ran_num");
-        lotto_img.src = lotto_ran+".jpg";
+        lotto_img.src = lotto_ran+".png";
         if(lotto_ran_count < 20){
             lotto_ran_count++;
         }
@@ -558,7 +562,7 @@
                 lotto_nums.sort(function (a, b){return a - b});
                 for(var i = 0; i < lotto_nums.length; i++){
                     var lotto_result_num = document.getElementById("lotto_num"+(i+1));
-                    lotto_result_num.src = lotto_nums[i]+".jpg";
+                    lotto_result_num.src = lotto_nums[i]+".png";
                 }
                 lotto_count++;
                 lotto_ran_count = 0;
@@ -570,6 +574,7 @@
             clearTimeout(lotto_animate);
             lotto_count = 0;
             isStart = true;
+            lotto_chk();
         }
     }
     var chk_count = 0;
@@ -586,7 +591,7 @@
             user_lotto.sort(function (a, b){return a - b});
             for(var i = 0; i < user_lotto.length; i++){
                     var lotto_select_num = document.getElementById("user_select_"+(i+1));
-                    lotto_select_num.src = user_lotto[i]+".jpg";
+                    lotto_select_num.src = user_lotto[i]+".png";
                 }
             chk_count++;
         }
@@ -603,11 +608,40 @@
             user_lotto.sort(function (a, b){return a - b});
             for(var i = 0; i < user_lotto.length; i++){
                     var lotto_select_num = document.getElementById("user_select_"+(i+1));
-                    lotto_select_num.src = user_lotto[i]+".jpg";
+                    lotto_select_num.src = user_lotto[i]+".png";
                 }
             chk_count--;
         }
         
+    }
+    var same_num = 0;
+    var rank = "";
+    function lotto_chk(){
+        for(var i = 0; i < lotto_nums.length; i++){
+            for(var j = 0; j < user_lotto.length; j++){
+                if(lotto_nums[i] == user_lotto[j]){
+                    same_num++;
+                    break;
+                }
+            }
+        }
+        if(same_num < 3){
+            rank = "낙첨";
+        }
+        if(same_num == 3){
+            rank = "5등";
+        }
+        if(same_num == 4){
+            rank = "4등";
+        }
+        if(same_num == 5){
+            rank = "3등";
+        }
+        if(same_num == 6){
+            rank = "1등";
+        }
+        alert("당신은 "+rank+" 입니다.");
+        same_num = 0;
     }
 
 </script>
