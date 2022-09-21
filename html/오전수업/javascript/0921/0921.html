@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+    <script>
+        // for(var i = 1; i <=100; i++){
+        //     if(i % 13 == 0){
+        //         document.write(i+"<br>");
+        //     }
+        // }
+        // for(var i = 1; i <= 24; i++){
+        //     if(24 % i == 0){
+        //         document.write(i + "<br>");
+        //     }
+        // }
+        // for(var i = 1; i <=96; i++){
+        //     if(124 % i == 0 && 96 % i == 0){
+        //         document.write(i + "<br>");
+        //     }
+        // }
+        // var maxnum = 0;
+        // for(var i = 1; i <= 124; i++){
+        //     if(124 % i == 0 && 155 % i == 0){
+        //         if(maxnum < i){
+        //             maxnum = i;
+        //         }
+        //     }
+        // }
+        // document.write(maxnum);
+        
+        var out = "user : ";
+        var num31 = 0;
+        var turn = true;
+        var cnt = 0;
+
+        function input(){
+            num31 = document.getElementById("num").value;
+            cnt++;
+            out += num31 + "  ";
+        }
+
+        function complete(){
+            var res = document.getElementById("result");
+            res.innerHTML = out;
+            out += "<br>"+"user : ";
+        }
+
+
+    </script>
+</head>
+<body>
+    <div>
+        <input type="number" id="num">
+        <input type="button" onclick="input()" value="입력">
+        <input type="button" onclick="complete()" value="입력 완료">
+    </div>
+    <hr>
+    <div id="result"></div>
+</body>
+</html>
