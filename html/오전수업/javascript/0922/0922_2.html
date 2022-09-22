@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var num = "";
+        var str = "";
+        var pass = new Array(4);
+            for(var f = 8; f<=9; f++){
+                pass[0] = f;
+                pass[2] = (f-7);
+                for(var k = 1; k<=9; k++){
+                    if(pass[0] != k && pass[2] != k){
+                        pass[3] = k;
+                    }
+                    for(var s = 1; s<pass[3]; s++){
+                        if(pass[0] != s && pass[2] != s && pass[3] != s){
+                            pass[1] = s;
+                        }
+                        num = pass[0]+""+pass[1]+""+pass[2]+""+pass[3];
+                        str = pass[3]+""+pass[2]+""+pass[1]+""+pass[0];
+                        if( (parseInt(num) + parseInt(str)) == 16566){
+                            document.write(num+"<br>");
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
