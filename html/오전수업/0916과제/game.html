@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Game World!</title>
     <link rel="stylesheet" type="text/css" href="game.css">
 </head>
 <body onload="textChange()">
@@ -50,7 +50,7 @@
                     <div id="dice_result"></div>
                 </div>
                 <div class="dice_start">
-                    <button onclick="diceChange()">굴리기</button>
+                    <button onclick="diceGame()">굴리기</button>
                 </div>
             </div>
         </div>
@@ -300,38 +300,54 @@
 </body>
 <script>
     //***가위바위보 스크립트 시작***
-    var rsp_count = 0;
-    var count = 0;
-    var rsp_text = document.getElementById("rspChange");
-    var result1 = document.getElementById("result1");
-    var result2 = document.getElementById("result2");
-    var rsp_animate;
-    function textChange(){
-        result1.innerHTML = "";
-        result2.innerHTML = "";
+    var rsp_count = 0; // 3가지 가위바위보 이미지를 돌리기위한 변수
+    var rsp_text = document.getElementById("rspChange"); // 3가지 가위바위보 이미지를 출력할 img태그의 id값 저장
+    var result1 = document.getElementById("result1"); // 결과를 저장할 div태그의 id값 저장1
+    var result2 = document.getElementById("result2"); // 결과를 저장할 div태그의 id값 저장1
+    var rsp_animate; // setTimeout을 사용하기위한 변수
+    var isRsp = false; // 이미지가 돌아가기전에 게임 시작를 방지하기위한 변수
+    //**3가지 가위바위보 이미지 반복 스크립트 시작**
+    function textChange(){ // body태그에 onload 이벤트를 사용하여
+                           // 브라우저가 실행될때 실행되는 이벤트
+        result1.innerHTML = ""; // 시작할때마다 결과 초기화1
+        result2.innerHTML = ""; // 시작할때마다 결과 초기화1
+        isRsp = false; // 게임을 시작할수있는 변수 저장
         if(rsp_count == 0){
-            rsp_text.innerHTML = "✊";
-            rsp_count++;
+            rsp_text.innerHTML = "✊"; // 3가지 가위바위보 텍스트(또는 이미지)를 출력
+            rsp_count++; // 다음 텍스트(또는 이미지) 출력을 위한 +1 연산
         }
         else if(rsp_count == 1){
-            rsp_text.innerHTML = "✌";
-            rsp_count++;
+            rsp_text.innerHTML = "✌"; // 3가지 가위바위보 텍스트(또는 이미지)를 출력
+            rsp_count++; // 다음 텍스트(또는 이미지) 출력을 위한 +1 연산
         }
         else{
-            rsp_text.innerHTML = "🖐";
-            rsp_count = 0;
+            rsp_text.innerHTML = "🖐"; // 3가지 가위바위보 텍스트(또는 이미지)를 출력
+            rsp_count = 0; // 처음 텍스트(또는 이미지)로 돌아가기 위한 변수 초기값으로 대입
         }
-        rsp_animate = setTimeout(textChange,100);
+        rsp_animate = setTimeout(textChange,100); // setTimeout()메소드를 사용하여 textChange()를 1번더 실행
+                                                  // 즉 정지시키는 clearTimeout()을 실행하기전까진 무한 반복
+                                                  // setTimeout(메소드 또는 함수, 지연시간)
+                                                  // setTimeout(textChange, 100) 의미는 100ms(0.1초) 뒤에 
+                                                  // textChange()메소드를 실행해라
     }
-    function clicks(rsp){
-        clearTimeout(rsp_animate);
-        var com = Math.floor(Math.random()*3)+1;
-        var user = rsp.id;
-        if(user == "rock_bt"){
-            if(com == 0){
-                rsp_text.innerHTML = "✊";
-                result1.innerHTML = "비겼다🤝";
-                result2.innerHTML = "비겼다🤝";
+    //**3가지 가위바위보 이미지 반복 스크립트 종료**
+
+    //**유저 가위바위보 클릭 스크립트 시작**
+    function clicks(rsp){ // clicks(rsp)안에 rsp의 의미는 매개변수로
+                          //onclick="clicks(this)"에 자기 자신을 가르키기 위한 매개변수
+        if(isRsp == true){
+            return; // 메소드를 여기서 종료한다.
+        }
+        clearTimeout(rsp_animate); // 3가지 가위바위보 이미지를 반복하는 textChange()메소드 정지
+        isRsp = true; // 게임이 시작되었다는 변수 대입
+        var com = Math.floor(Math.random()*3)+1; // 컴퓨터 가위바위보 값 랜덤 저장
+        var user = rsp.id; // rsp의 id값을 저장
+        if(user == "rock_bt"){ // 변수 user에 저장되어 있는 값이 "rock_bt"면 아래 내용 실행
+            if(com == 0){ // 컴퓨터는 0 = 바위, 1 = 가위, 2 = 보로 정리
+                rsp_text.innerHTML = "✊"; // 3가지 가위바위보 이미지가 반복되는 텍스트(또는 이미지)태그에
+                                           // 컴퓨터 값에 맞는 텍스트(또는 이미지) 출력
+                result1.innerHTML = "비겼다🤝"; // 결과 div태그에 결과값 출력
+                result2.innerHTML = "비겼다🤝"; // 결과 div태그에 결과값 출력
             }
             else if(com == 1){
                 rsp_text.innerHTML = "✌";
@@ -378,10 +394,16 @@
                 result2.innerHTML = "비겼다🤝";
             }
         }
-        rsp_animate = setTimeout(textChange,2000);
+        rsp_animate = setTimeout(textChange,2000); // clearTimeout()메소드로 정지된
+                                                   // 3가지 가위바위보 이미지 반복 실행
     }
+    //**유저 가위바위보 클릭 스크립트 종료**
+
     //***가위바위보 스크립트 종료***
+
+    //***주사위 스크립트 시작***
     var dice_count = 1;
+    var count = 0; //
     var com_dice1 = document.getElementById("c_d_1");
     var com_dice2 = document.getElementById("c_d_2");
     var com_dice3 = document.getElementById("c_d_3");
@@ -394,60 +416,70 @@
     var com_dices = new Array(3);
     var user_dices = new Array(3);
     var dice_animate;
+    var isDice = false;
     function diceGame(){
-        for(var i = 0; i<3; i++){
+        if(isDice == true){
+            return;
+        }
+        diceChange();
+    }
+    function dice_chk(){
+        if(isDice == false){
+            for(var i = 0; i<3; i++){
             var com_ran = Math.floor(Math.random()*6)+1;
             var user_ran = Math.floor(Math.random()*6)+1;
             com_dices[i] = com_ran;
             user_dices[i] = user_ran;
-        }
-        var com_sum = com_dices[0]+com_dices[1]+com_dices[2];
-        var user_sum = user_dices[0]+user_dices[1]+user_dices[2];
-        com_dice1.src = "dice"+com_dices[0]+".png";
-        com_dice2.src = "dice"+com_dices[1]+".png";
-        com_dice3.src = "dice"+com_dices[2]+".png";
-        user_dice1.src = "dice"+user_dices[0]+".png";
-        user_dice2.src = "dice"+user_dices[1]+".png";
-        user_dice3.src = "dice"+user_dices[2]+".png";
-        com_score.innerHTML = "컴퓨터 합 : "+com_sum;
-        user_score.innerHTML = "유저 합 : "+user_sum;
+            }
+            var com_sum = com_dices[0]+com_dices[1]+com_dices[2];
+            var user_sum = user_dices[0]+user_dices[1]+user_dices[2];
+            com_dice1.src = "dice"+com_dices[0]+".png";
+            com_dice2.src = "dice"+com_dices[1]+".png";
+            com_dice3.src = "dice"+com_dices[2]+".png";
+            user_dice1.src = "dice"+user_dices[0]+".png";
+            user_dice2.src = "dice"+user_dices[1]+".png";
+            user_dice3.src = "dice"+user_dices[2]+".png";
+            com_score.innerHTML = "컴퓨터 합 : "+com_sum;
+            user_score.innerHTML = "유저 합 : "+user_sum;
 
-        
-        if(com_sum > user_sum){
-            dice_result.innerHTML = "컴퓨터 승!";
-        }
-        else if(com_sum == user_sum){
-            dice_result.innerHTML = "동점";
-        }
-        else{
-            dice_result.innerHTML = "유저 승!";
-        }
-        if(com_dices[0] == 3 && com_dices[1] == 3 && com_dices[2] == 3){
-            dice_result.innerHTML = "컴퓨터 승!";
-        }
-        if(user_dices[0] == 3 && user_dices[1] == 3 && user_dices[2] == 3){
-            dice_result.innerHTML = "유저 승!";
-        }
-        if(com_dices[0] == 3 && com_dices[1] == 3 && com_dices[2] == 3 && user_dices[0] == 3 && user_dices[1] == 3 && user_dices[2] == 3){
-            dice_result.innerHTML = "동점";
-        }
-        if(com_sum == 3 && user_sum > 3){
-            dice_result.innerHTML = "컴퓨터 승!";
-        }
-        if(user_sum == 3 && com_sum > 3){
-            dice_result.innerHTML = "유저 승!";
-        }
-        if(user_sum == 3 && com_sum == 3){
-            dice_result.innerHTML = "동점";
+            
+            if(com_sum > user_sum){
+                dice_result.innerHTML = "컴퓨터 승!";
+            }
+            else if(com_sum == user_sum){
+                dice_result.innerHTML = "동점";
+            }
+            else{
+                dice_result.innerHTML = "유저 승!";
+            }
+            if(com_dices[0] == 3 && com_dices[1] == 3 && com_dices[2] == 3){
+                dice_result.innerHTML = "컴퓨터 승!";
+            }
+            if(user_dices[0] == 3 && user_dices[1] == 3 && user_dices[2] == 3){
+                dice_result.innerHTML = "유저 승!";
+            }
+            if(com_dices[0] == 3 && com_dices[1] == 3 && com_dices[2] == 3 && user_dices[0] == 3 && user_dices[1] == 3 && user_dices[2] == 3){
+                dice_result.innerHTML = "동점";
+            }
+            if(com_sum == 3 && user_sum > 3){
+                dice_result.innerHTML = "컴퓨터 승!";
+            }
+            if(user_sum == 3 && com_sum > 3){
+                dice_result.innerHTML = "유저 승!";
+            }
+            if(user_sum == 3 && com_sum == 3){
+                dice_result.innerHTML = "동점";
+            }
         }
     }
     function diceChange(){
+        isDice = true;
         if(count == 0){
             com_score.innerHTML = "컴퓨터 합 :";
             user_score.innerHTML = "유저 합 :";
             dice_result.innerHTML = "";
         }
-        if(count <= 10){
+        if(count < 10){
             count++;
         }
         if(dice_count == 1){
@@ -506,42 +538,56 @@
         }
         dice_animate = setTimeout(diceChange,50);
         if(count == 10){
-            count = 0;
             clearTimeout(dice_animate);
-            diceGame();
+            count = 0;
+            isDice = false;
+            dice_chk();
         }
+        
+        
     }
+    //***주사위 스크립트 종료***
+
+    //***로또 스크립트 시작***
     var lotto_ran_count = 0;
     var lotto_count = 0;
     var isNum = false;
-    var isStart = true;
+    var isStart = false;
     var lotto_res = document.getElementById("lotto_result");
     var lotto_nums;
     var user_lotto = new Array();
     var lotto_animate;
+    var isStart_num = 0;
     function lotto_start(){
         if(chk_count < 6){
             alert("번호 6개를 체크해주세요!");
             return;
         }
         if(isStart == true){
+            return;
+        }
+        lotto_change();
+        
+    }
+    function lotto_change(){
+        if(isStart == false){
             lotto_nums = new Array(1);
             for(var i = 1; i <= 7; i++){
                 var lotto_result_num = document.getElementById("lotto_num"+i);
                 lotto_result_num.src = "";
-                isStart = false;
+                isStart = true;
             }
             lotto_res.innerHTML = "";
         }
         isNum = false;
-        lotto_animate = setTimeout(lotto_start,50);
+        lotto_animate = setTimeout(lotto_change,50);
         var lotto_ran = Math.floor(Math.random()*45)+1;
         var lotto_img = document.getElementById("lotto_ran_num");
         lotto_img.src = lotto_ran+".png";
-        if(lotto_ran_count < 5){
+        if(lotto_ran_count < 15){
             lotto_ran_count++;
         }
-        if(lotto_ran_count == 5){
+        if(lotto_ran_count == 15){
             for(var i = 0; i < lotto_nums.length; i++){
                 if(parseInt(lotto_nums[i]) == parseInt(lotto_ran)){
                     isNum = true;
@@ -565,13 +611,13 @@
                 lotto_count++;
                 lotto_ran_count = 0;
                 clearTimeout(lotto_animate);
-                lotto_animate = setTimeout(lotto_start,50);
+                lotto_animate = setTimeout(lotto_change,500);
             }
         }
         if(lotto_count == 7){
             clearTimeout(lotto_animate);
             lotto_count = 0;
-            isStart = true;
+            isStart = false;
             lotto_chk();
         }
     }
@@ -648,6 +694,6 @@
         same_num = 0;
         bouns_num = 0;
     }
-
+    //***로또 스크립트 종료***
 </script>
 </html>
