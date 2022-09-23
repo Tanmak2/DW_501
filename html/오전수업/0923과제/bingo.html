@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>컴퓨터야 빙고 뜨자!</title>
+    <link rel="stylesheet" href="bingo.css">
+</head>
+<body onload="user_thinking()">
+    <div class="main_wrap">
+        <div class="game_title">AI 컴퓨터와 빙고 대결!</div>
+        <div class="bingo_wrap">
+            <div class="user_bingo_box">
+                <div class="bingo_line">
+                    <div class="bingo_boxes" onclick="user_bingo_click(1)" id="user_1"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(2)" id="user_2"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(3)" id="user_3"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(4)" id="user_4"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(5)" id="user_5"></div>
+                </div>
+                <div class="bingo_line">
+                    <div class="bingo_boxes" onclick="user_bingo_click(6)" id="user_6"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(7)" id="user_7"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(8)" id="user_8"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(9)" id="user_9"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(10)" id="user_10"></div>
+                </div>
+                <div class="bingo_line">
+                    <div class="bingo_boxes" onclick="user_bingo_click(11)" id="user_11"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(12)" id="user_12"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(13)" id="user_13"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(14)" id="user_14"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(15)" id="user_15"></div>
+                </div>
+                <div class="bingo_line">
+                    <div class="bingo_boxes" onclick="user_bingo_click(16)" id="user_16"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(17)" id="user_17"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(18)" id="user_18"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(19)" id="user_19"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(20)" id="user_20"></div>
+                </div>
+                <div class="bingo_line">
+                    <div class="bingo_boxes" onclick="user_bingo_click(21)" id="user_21"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(22)" id="user_22"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(23)" id="user_23"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(24)" id="user_24"></div>
+                    <div class="bingo_boxes" onclick="user_bingo_click(25)" id="user_25"></div>
+                </div>
+            </div>
+            <div class="bingo_box_center">
+                <div id="thinking"></div>
+                <button id="btn" onclick="start()">시작하기</button>
+            </div>
+            <div class="com_bingo_box">
+                <div class="bingo_line">
+                    <div class="bingo_boxes" id="com_1"></div>
+                    <div class="bingo_boxes" id="com_2"></div>
+                    <div class="bingo_boxes" id="com_3"></div>
+                    <div class="bingo_boxes" id="com_4"></div>
+                    <div class="bingo_boxes" id="com_5"></div>
+                </div>
+                <div class="bingo_line">
+                    <div class="bingo_boxes" id="com_6"></div>
+                    <div class="bingo_boxes" id="com_7"></div>
+                    <div class="bingo_boxes" id="com_8"></div>
+                    <div class="bingo_boxes" id="com_9"></div>
+                    <div class="bingo_boxes" id="com_10"></div>
+                </div>
+                <div class="bingo_line">
+                    <div class="bingo_boxes" id="com_11"></div>
+                    <div class="bingo_boxes" id="com_12"></div>
+                    <div class="bingo_boxes" id="com_13"></div>
+                    <div class="bingo_boxes" id="com_14"></div>
+                    <div class="bingo_boxes" id="com_15"></div>
+                </div>
+                <div class="bingo_line">
+                    <div class="bingo_boxes" id="com_16"></div>
+                    <div class="bingo_boxes" id="com_17"></div>
+                    <div class="bingo_boxes" id="com_18"></div>
+                    <div class="bingo_boxes" id="com_19"></div>
+                    <div class="bingo_boxes" id="com_20"></div>
+                </div>
+                <div class="bingo_line">
+                    <div class="bingo_boxes" id="com_21"></div>
+                    <div class="bingo_boxes" id="com_22"></div>
+                    <div class="bingo_boxes" id="com_23"></div>
+                    <div class="bingo_boxes" id="com_24"></div>
+                    <div class="bingo_boxes" id="com_25"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    // 생각중 메소드 시작
+    var thinkingText = document.getElementById("thinking");
+    var btn = document.getElementById("btn");
+    var think_animate;
+    var think_count = 0;
+    var isUser = true;
+    function user_thinking(){
+        switch(isUser){
+            case true:
+                if(think_count == 0){
+                    thinkingText.innerHTML = "유저 생각중."
+                    think_count++;
+                }
+                else if(think_count == 1){
+                    thinkingText.innerHTML = "유저 생각중.."
+                    think_count++;
+                }
+                else{
+                    thinkingText.innerHTML = "유저 생각중..."
+                    think_count = 0;
+                    isUser = false;
+                }
+                break;
+            case false:
+                if(think_count == 0){
+                    thinkingText.innerHTML = "컴퓨터 생각중."
+                    think_count++;
+                }
+                else if(think_count == 1){
+                    thinkingText.innerHTML = "컴퓨터 생각중.."
+                    think_count++;
+                }
+                else{
+                    thinkingText.innerHTML = "컴퓨터 생각중..."
+                    think_count = 0;
+                    isUser = true;
+                }
+                break;
+        }
+        think_animate = setTimeout(user_thinking,200);
+    }
+    // 생각중 메소드 종료
+    var user_bingos = new Array(5);
+    var com_bingos = new Array(5);
+    var isNum = false;
+    var isStart = false;
+    function start(){
+        if(isStart){
+            if(confirm("게임이 진행중입니다. 초기화 하시겠습니까?") == true){
+                isStart = false;
+                for(var i = 1; i<=25; i++){
+                    var user_clear = document.getElementById("user_"+i);
+                    var com_clear = document.getElementById("com_"+i);
+                    user_clear.style.backgroundColor = "";
+                    com_clear.style.backgroundColor = "";
+                }
+            }
+            else{
+                return;
+            }
+        }
+        user_bingo_input();
+        com_bingo_input();
+        btn.innerHTML = "다시하기";
+        isStart = true;
+    }
+    function user_bingo_input(){
+        for(var i = 0; i<user_bingos.length; i++){
+            user_bingos[i] = new Array(5);
+        }
+        var x = 0;
+        var y = 0;
+        for(var i = 1; i<=25; i++){
+            var user_num = document.getElementById("user_"+i);
+            var user_ran = Math.floor(Math.random()*100)+1;
+            isNum = false;
+            for(var j = 0; j<user_bingos.length; j++){
+                if(isNum){
+                    break;
+                }
+                for(var k = 0; k<user_bingos[j].length; k++){
+                    if(user_bingos[j][k] == user_ran){
+                        isNum = true;
+                        i--;
+                        break;
+                    }
+                }
+            }
+            if(!isNum){
+                user_bingos[x][y] = user_ran;
+                user_num.innerHTML = user_bingos[x][y];
+                y++
+                if(y == 5){
+                    y = 0;
+                    x++;
+                }
+            }
+        }
+    }
+
+    function com_bingo_input(){
+        for(var i = 0; i<com_bingos.length; i++){
+            com_bingos[i] = new Array(5);
+        }
+        var x = 0;
+        var y = 0;
+        for(var i = 1; i<=25; i++){
+            var com_num = document.getElementById("com_"+i);
+            var com_ran = Math.floor(Math.random()*100)+1;
+            isNum = false;
+            for(var j = 0; j<com_bingos.length; j++){
+                if(isNum){
+                    break;
+                }
+                for(var k = 0; k<com_bingos[j].length; k++){
+                    if(com_bingos[j][k] == com_ran){
+                        isNum = true;
+                        i--;
+                        break;
+                    }
+                }
+            }
+            if(!isNum){
+                com_bingos[x][y] = com_ran;
+                com_num.innerHTML = com_bingos[x][y];
+                y++
+                if(y == 5){
+                    y = 0;
+                    x++;
+                }
+            }
+        }
+    }
+
+    function user_bingo_click(num){
+        var line_num = parseInt(num / 5);
+        if(num % 5 == 0){
+            line_num--;
+        }
+        var col_num = (num-1) % 5;
+        if(!isStart){
+            alert("시작하기 버튼을 누른 후 시작해주세요!");
+            return;
+        }
+        if(user_bingos[line_num][col_num] == true && user_bingos[line_num][col_num] != ""){
+            alert("이미 선택한 칸입니다.");
+            return;
+        }
+        var click = document.getElementById("user_"+num);
+        click.style.backgroundColor = "royalblue";
+        var isCheck = true;
+        bingo_chk(num, isCheck);
+    }
+
+    function bingo_chk(chk_num, isCheck){
+        var bingo_count = 0;
+        var line_num = parseInt(chk_num / 5);
+        if(chk_num % 5 == 0){
+            line_num--;
+        }
+        var col_num = (chk_num-1) % 5;
+        user_bingos[line_num][col_num] = isCheck;
+        for(var i = 0; i<5; i++){
+            if(user_bingos[i][i] == true){
+                bingo_count++;
+            }
+            if(bingo_count == 5){
+                alert("빙고완성!");
+                return;
+            }
+        }
+        bingo_count = 0;
+        for(var i =0; i<5; i++){
+            if(user_bingos[i][4-i] == true){
+                bingo_count++;
+            }
+            if(bingo_count == 5){
+                alert("빙고완성!");
+                return;
+            }
+        }
+        for(var i = 0; i<5; i++){
+            var bingo_count = 0;
+            for(var j = 0; j<5; j++){
+                if(user_bingos[i][j] == true){
+                    bingo_count++;
+                }
+            }
+            if(bingo_count == 5){
+                alert("빙고완성!");
+                return;
+            }
+        }
+        for(var i = 0; i<5; i++){
+            var bingo_count = 0;
+            for(var j = 0; j<5; j++){
+                if(user_bingos[j][i] == true){
+                    bingo_count++;
+                }
+            }
+            if(bingo_count == 5){
+                alert("빙고완성!");
+                return;
+            }
+        }
+    }
+
+</script>
+</html>
