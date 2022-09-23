@@ -167,7 +167,7 @@
         var y = 0;
         for(var i = 1; i<=25; i++){
             var user_num = document.getElementById("user_"+i);
-            var user_ran = Math.floor(Math.random()*100)+1;
+            var user_ran = Math.floor(Math.random()*50)+1;
             isNum = false;
             for(var j = 0; j<user_bingos.length; j++){
                 if(isNum){
@@ -201,7 +201,7 @@
         var y = 0;
         for(var i = 1; i<=25; i++){
             var com_num = document.getElementById("com_"+i);
-            var com_ran = Math.floor(Math.random()*100)+1;
+            var com_ran = Math.floor(Math.random()*50)+1;
             isNum = false;
             for(var j = 0; j<com_bingos.length; j++){
                 if(isNum){
@@ -237,17 +237,20 @@
             alert("시작하기 버튼을 누른 후 시작해주세요!");
             return;
         }
+        alert(user_bingos[line_num]);
         if(user_bingos[line_num][col_num] == true && user_bingos[line_num][col_num] != ""){
             alert("이미 선택한 칸입니다.");
             return;
         }
         var click = document.getElementById("user_"+num);
         click.style.backgroundColor = "royalblue";
+        
         var isCheck = true;
-        bingo_chk(num, isCheck);
+        user_bingo_chk(num, isCheck);
+        com_bingo_chk(click.innerHTML, isCheck);
     }
 
-    function bingo_chk(chk_num, isCheck){
+    function user_bingo_chk(chk_num, isCheck){
         var bingo_count = 0;
         var line_num = parseInt(chk_num / 5);
         if(chk_num % 5 == 0){
@@ -260,7 +263,7 @@
                 bingo_count++;
             }
             if(bingo_count == 5){
-                alert("빙고완성!");
+                alert("빙고완성! 유저승리!");
                 return;
             }
         }
@@ -270,7 +273,7 @@
                 bingo_count++;
             }
             if(bingo_count == 5){
-                alert("빙고완성!");
+                alert("빙고완성! 유저승리!");
                 return;
             }
         }
@@ -282,7 +285,7 @@
                 }
             }
             if(bingo_count == 5){
-                alert("빙고완성!");
+                alert("빙고완성! 유저승리!");
                 return;
             }
         }
@@ -294,7 +297,72 @@
                 }
             }
             if(bingo_count == 5){
-                alert("빙고완성!");
+                alert("빙고완성! 유저승리!");
+                return;
+            }
+        }
+    }
+
+    function com_bingo_chk(chk_num, isCheck){
+        var bingo_count = 0;
+        // var line_num = parseInt(chk_num / 5);
+        // if(chk_num % 5 == 0){
+        //     line_num--;
+        // }
+        // var col_num = (chk_num-1) % 5;
+        for(var i = 0; i<com_bingos.length; i++){
+            for(var j = 0; j<com_bingos[i].length; j++){
+                if(com_bingos[i][j] == chk_num){
+                    for(var k = 1; k<=25; k++){
+                        var search_num = document.getElementById("com_"+k);
+                        if(search_num.innerHTML == chk_num){
+                            search_num.style.backgroundColor = "royalblue";
+                        }
+                    }
+                    com_bingos[i][j] = isCheck;
+                }
+            }
+        }
+        for(var i = 0; i<5; i++){
+            if(com_bingos[i][i] == true){
+                bingo_count++;
+            }
+            if(bingo_count == 5){
+                alert("빙고완성! 컴퓨터 승리!");
+                return;
+            }
+        }
+        bingo_count = 0;
+        for(var i =0; i<5; i++){
+            if(com_bingos[i][4-i] == true){
+                bingo_count++;
+            }
+            if(bingo_count == 5){
+                alert("빙고완성! 컴퓨터 승리!");
+                return;
+            }
+        }
+        for(var i = 0; i<5; i++){
+            var bingo_count = 0;
+            for(var j = 0; j<5; j++){
+                if(com_bingos[i][j] == true){
+                    bingo_count++;
+                }
+            }
+            if(bingo_count == 5){
+                alert("빙고완성! 컴퓨터 승리!");
+                return;
+            }
+        }
+        for(var i = 0; i<5; i++){
+            var bingo_count = 0;
+            for(var j = 0; j<5; j++){
+                if(com_bingos[j][i] == true){
+                    bingo_count++;
+                }
+            }
+            if(bingo_count == 5){
+                alert("빙고완성! 컴퓨터 승리!");
                 return;
             }
         }
