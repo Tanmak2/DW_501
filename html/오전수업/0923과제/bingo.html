@@ -7,7 +7,7 @@
     <title>컴퓨터야 빙고 뜨자!</title>
     <link rel="stylesheet" href="bingo.css">
 </head>
-<body onload="user_thinking()">
+<body>
     <div class="main_wrap">
         <div class="game_title">AI 컴퓨터와 빙고 대결!</div>
         <div class="bingo_wrap">
@@ -94,11 +94,46 @@
 </body>
 <script>
     // 생각중 메소드 시작
+    var com_ai_think;
     var thinkingText = document.getElementById("thinking");
     var btn = document.getElementById("btn");
     var think_animate;
     var think_count = 0;
     var isUser = true;
+    var com_think_count = 0;
+    var first_change_time = 50;
+    var first_change = 0;
+    var isFirstSelect = false;
+    var first_change_animate;
+    var isFirst;
+    function first_select(){
+        var times_ran = Math.floor(Math.random()*50)+1;
+        if(first_change == 0){
+            thinkingText.innerHTML = "선공";
+            first_change++;
+            first_change_time += times_ran;
+        }
+        else{
+            thinkingText.innerHTML = "후공";
+            first_change = 0;
+            first_change_time += times_ran;
+        }
+        if(first_change_time >= 500){
+            clearTimeout(first_change_animate);
+            isFirstSelect = true; 
+            if(thinkingText.innerHTML == "선공"){
+                isFirst = true;
+            }
+            else{
+                isFirst = false;
+            }
+            setTimeout(start,2000);
+        }
+        else{
+            first_change_animate = setTimeout(first_select, first_change_time);
+        }
+    }
+
     function user_thinking(){
         switch(isUser){
             case true:
@@ -113,7 +148,6 @@
                 else{
                     thinkingText.innerHTML = "유저 생각중..."
                     think_count = 0;
-                    isUser = false;
                 }
                 break;
             case false:
@@ -128,32 +162,66 @@
                 else{
                     thinkingText.innerHTML = "컴퓨터 생각중..."
                     think_count = 0;
-                    isUser = true;
                 }
                 break;
         }
-        think_animate = setTimeout(user_thinking,200);
+        think_animate = setTimeout(user_thinking,300);
     }
     // 생각중 메소드 종료
     var user_bingos = new Array(5);
     var com_bingos = new Array(5);
     var isNum = false;
     var isStart = false;
+    var isEnd = false;
+
+    function reset(){
+        isStart = false;
+        isUser = true;
+        isTrue = false;
+        isEnd = false;
+        clearTimeout(think_animate);
+        think_count = 0;
+        isFirstSelect = false;
+        first_change_time = 50;
+        for(var i = 1; i<=25; i++){
+            var user_clear = document.getElementById("user_"+i);
+            var com_clear = document.getElementById("com_"+i);
+            user_clear.style.backgroundColor = "";
+            user_clear.innerHTML = "";
+            com_clear.style.backgroundColor = "";
+            com_clear.innerHTML = "";
+        }
+        start();
+    }
+
     function start(){
+        if(!isFirstSelect){
+            first_select();
+            return;
+        }
         if(isStart){
             if(confirm("게임이 진행중입니다. 초기화 하시겠습니까?") == true){
-                isStart = false;
-                for(var i = 1; i<=25; i++){
-                    var user_clear = document.getElementById("user_"+i);
-                    var com_clear = document.getElementById("com_"+i);
-                    user_clear.style.backgroundColor = "";
-                    com_clear.style.backgroundColor = "";
-                }
+                reset();
+                return;
             }
             else{
                 return;
             }
         }
+        if(isEnd){
+            if(confirm("게임이 종료되었습니다. 초기화 하시겠습니까?") == true){
+                reset();
+                return;
+            }
+            else{
+                return;
+            }
+        }
+        if(!isFirst){
+            isUser = false;
+            com_ai_think = setTimeout(com_ai, 1000);
+        }
+        user_thinking();
         user_bingo_input();
         com_bingo_input();
         btn.innerHTML = "다시하기";
@@ -167,7 +235,7 @@
         var y = 0;
         for(var i = 1; i<=25; i++){
             var user_num = document.getElementById("user_"+i);
-            var user_ran = Math.floor(Math.random()*50)+1;
+            var user_ran = Math.floor(Math.random()*25)+1;
             isNum = false;
             for(var j = 0; j<user_bingos.length; j++){
                 if(isNum){
@@ -201,7 +269,7 @@
         var y = 0;
         for(var i = 1; i<=25; i++){
             var com_num = document.getElementById("com_"+i);
-            var com_ran = Math.floor(Math.random()*50)+1;
+            var com_ran = Math.floor(Math.random()*25)+1;
             isNum = false;
             for(var j = 0; j<com_bingos.length; j++){
                 if(isNum){
@@ -233,25 +301,346 @@
             line_num--;
         }
         var col_num = (num-1) % 5;
-        if(!isStart){
+        if(isEnd){
+            alert("다시하기 버튼을 눌러 주세요!");
+            return;
+        }
+        if(!isStart && !isEnd){
             alert("시작하기 버튼을 누른 후 시작해주세요!");
             return;
         }
-        alert(user_bingos[line_num]);
-        if(user_bingos[line_num][col_num] == true && user_bingos[line_num][col_num] != ""){
+        if(user_bingos[line_num][col_num] === true && user_bingos[line_num][col_num] != ""){
             alert("이미 선택한 칸입니다.");
+            return;
+        }
+        if(!isUser){
+            alert("컴퓨터 순서입니다.");
             return;
         }
         var click = document.getElementById("user_"+num);
         click.style.backgroundColor = "royalblue";
         
         var isCheck = true;
+        isUser = false;
+        if(isStart){
+            com_ai_think = setTimeout(com_ai, 1000);
+        }
         user_bingo_chk(num, isCheck);
         com_bingo_chk(click.innerHTML, isCheck);
     }
+    function com_chk(chk_num, isCheck){
+        for(var i = 0; i<user_bingos.length; i++){
+            for(var j = 0; j<user_bingos[i].length; j++){
+                if(user_bingos[i][j] === chk_num){
+                    for(var k = 1; k<=25; k++){
+                        search_num = document.getElementById("user_"+k);
+                        if(search_num.innerHTML == chk_num){
+                            alert(k);
+                            search_num.style.backgroundColor = "royalblue";
+                        }
+                    }
+                    user_bingos[i][j] = isCheck;
+                }
+            }
+        }
+        com_bingo_chk(chk_num, true);
+    }
+    var col_idx = 0;
+    var row_idx = 0;
+    var isTrue = false;
+    function com_ai(){
+        isUser = true;
+        col_idx = col_count.indexOf(Math.max.apply(null, col_count));
+        row_idx = row_count.indexOf(Math.max.apply(null, row_count));
+        var ai_ran = Math.floor(Math.random()*10)+1;
+        var col_row_ran = Math.floor(Math.random()*10)+1;
+        if(!isTrue){
+            for(var i = 0; i<com_bingos.length; i++){
+                for(var j = 0; j<com_bingos[i].length; j++){
+                    if(com_bingos[i][j] === true)
+                    isTrue = true;
+                    break;
+                }
+            }
+            if(!isTrue){
+                var first_ran = Math.floor(Math.random()*25)+1;
+                search_num = document.getElementById("com_"+first_ran);
+                search_num.style.backgroundColor = "royalblue";
+                for(var x = 0; x<com_bingos.length; x++){
+                    for(var y = 0; y<com_bingos[x].length; y++){
+                        if(search_num.innerHTML == com_bingos[x][y]){
+                            com_chk(com_bingos[x][y], true);
+                            com_bingos[x][y] = true;
+                            isTrue = true;
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+        if(Math.max.apply(null, col_count) > Math.max.apply(null, row_count)){
+            switch(col_row_ran % 2){
+                    case 0:
+                        for(var i = 0; i<5; i++){
+                            if(com_bingos[col_idx][i] === true){
+                                if(i-1 >= 0 && com_bingos[col_idx][i-1] !== true){
+                                    for(var j = 1; j<=25; j++){
+                                        search_num = document.getElementById("com_"+j);
+                                        if(search_num.innerHTML == com_bingos[col_idx][i-1]){
+                                            search_num.style.backgroundColor = "royalblue";
+                                        }
+                                    }
+                                    com_chk(com_bingos[col_idx][i-1], true);
+                                    com_bingos[col_idx][i-1] = true;
+                                    return;
+                                }
+                                else if(i+1 <= 4 && com_bingos[col_idx][i+1] !== true){
+                                    for(var j = 1; j<=25; j++){
+                                        search_num = document.getElementById("com_"+j);
+                                        if(search_num.innerHTML == com_bingos[col_idx][i+1]){
+                                            search_num.style.backgroundColor = "royalblue";
+                                        }
+                                    }
+                                    com_chk(com_bingos[col_idx][i+1], true);
+                                    com_bingos[col_idx][i+1] = true;
+                                    return;
+                                }
+                            }
+                        }
+                        break;
+                    case 1:
+                        for(var i = 0; i<5; i++){
+                            if(com_bingos[col_idx][i] === true){
+                                if(i+1 <= 4 && com_bingos[col_idx][i+1] !== true){
+                                    for(var j = 1; j<=25; j++){
+                                        search_num = document.getElementById("com_"+j);
+                                        if(search_num.innerHTML == com_bingos[col_idx][i+1]){
+                                            search_num.style.backgroundColor = "royalblue";
+                                        }
+                                    }
+                                    com_chk(com_bingos[col_idx][i+1], true);
+                                    com_bingos[col_idx][i+1] = true;
+                                    return;
+                                }
+                                else if(i-1 >= 0 && com_bingos[col_idx][i-1] !== true){
+                                    for(var j = 1; j<=25; j++){
+                                        search_num = document.getElementById("com_"+j);
+                                        if(search_num.innerHTML == com_bingos[col_idx][i-1]){
+                                            search_num.style.backgroundColor = "royalblue";
+                                        }
+                                    }
+                                    com_chk(com_bingos[col_idx][i-1], true);
+                                    com_bingos[col_idx][i-1] = true;
+                                    return;
+                                }
+                            }
+                        }
+                        break;
+                }
+        }
+        else if (Math.max.apply(null, col_count) == Math.max.apply(null, row_count)){
+            switch(ai_ran % 2){
+                case 0:
+                    switch(col_row_ran % 2){
+                        case 0:
+                            for(var i = 0; i<5; i++){
+                                if(com_bingos[col_idx][i] === true){
+                                    if(i-1 >= 0 && com_bingos[col_idx][i-1] !== true){
+                                        for(var j = 1; j<=25; j++){
+                                            search_num = document.getElementById("com_"+j);
+                                            if(search_num.innerHTML == com_bingos[col_idx][i-1]){
+                                                search_num.style.backgroundColor = "royalblue";
+                                            }
+                                        }
+                                        com_chk(com_bingos[col_idx][i-1], true);
+                                        com_bingos[col_idx][i-1] = true;
+                                        return;
+                                    }
+                                    else if(i+1 <= 4 && com_bingos[col_idx][i+1] !== true){
+                                        for(var j = 1; j<=25; j++){
+                                            search_num = document.getElementById("com_"+j);
+                                            if(search_num.innerHTML == com_bingos[col_idx][i+1]){
+                                                search_num.style.backgroundColor = "royalblue";
+                                            }
+                                        }
+                                        com_chk(com_bingos[col_idx][i+1], true);
+                                        com_bingos[col_idx][i+1] = true;
+                                        return;
+                                    }
+                                }
+                            }
+                            break;
+                        case 1:
+                            for(var i = 0; i<5; i++){
+                                if(com_bingos[col_idx][i] === true){
+                                    if(i+1 <= 4 && com_bingos[col_idx][i+1] !== true){
+                                        for(var j = 1; j<=25; j++){
+                                            search_num = document.getElementById("com_"+j);
+                                            if(search_num.innerHTML == com_bingos[col_idx][i+1]){
+                                                search_num.style.backgroundColor = "royalblue";
+                                            }
+                                        }
+                                        com_chk(com_bingos[col_idx][i+1], true);
+                                        com_bingos[col_idx][i+1] = true;
+                                        return;
+                                    }
+                                    else if(i-1 >= 0 && com_bingos[col_idx][i-1] !== true){
+                                        for(var j = 1; j<=25; j++){
+                                            search_num = document.getElementById("com_"+j);
+                                            if(search_num.innerHTML == com_bingos[col_idx][i-1]){
+                                                search_num.style.backgroundColor = "royalblue";
+                                            }
+                                        }
+                                        com_chk(com_bingos[col_idx][i-1], true);
+                                        com_bingos[col_idx][i-1] = true;
+                                        return;
+                                    }
+                                }
+                            }
+                            break;
+                    }
+                    break;
+                case 1:
+                    switch(col_row_ran % 2){
+                        case 0:
+                            for(var i = 0; i<5; i++){
+                                if(com_bingos[i][row_idx] === true){
+                                    if(i-1 >= 0 && com_bingos[i-1][row_idx] !== true){
+                                        for(var j = 1; j<=25; j++){
+                                            search_num = document.getElementById("com_"+j);
+                                            if(search_num.innerHTML == com_bingos[i-1][row_idx]){
+                                                search_num.style.backgroundColor = "royalblue";
+                                            }
+                                        }
+                                        com_chk(com_bingos[i-1][row_idx], true);
+                                        com_bingos[i-1][row_idx] = true;
+                                        return;
+                                    }
+                                    else if(i+1 <= 4 && com_bingos[i+1][row_idx] !== true){
+                                        for(var j = 1; j<=25; j++){
+                                            search_num = document.getElementById("com_"+j);
+                                            if(search_num.innerHTML == com_bingos[i+1][row_idx]){
+                                                search_num.style.backgroundColor = "royalblue";
+                                            }
+                                        }
+                                        com_chk(com_bingos[i+1][row_idx], true);
+                                        com_bingos[i+1][row_idx] = true;
+                                        return;
+                                    }
+                                }
+                            }
+                            break;
+                        case 1:
+                            for(var i = 0; i<5; i++){
+                                if(com_bingos[i][row_idx] === true){
+                                    if(i+1 <= 4 && com_bingos[i+1][row_idx] !== true){
+                                        for(var j = 1; j<=25; j++){
+                                            search_num = document.getElementById("com_"+j);
+                                            if(search_num.innerHTML == com_bingos[i+1][row_idx]){
+                                                search_num.style.backgroundColor = "royalblue";
+                                            }
+                                        }
+                                        com_chk(com_bingos[i+1][row_idx], true);
+                                        com_bingos[i+1][row_idx] = true;
+                                        return;
+                                    }
+                                    else if(i-1 >= 0 && com_bingos[i-1][row_idx] !== true){
+                                        for(var j = 1; j<=25; j++){
+                                            search_num = document.getElementById("com_"+j);
+                                            if(search_num.innerHTML == com_bingos[i-1][row_idx]){
+                                                search_num.style.backgroundColor = "royalblue";
+                                            }
+                                        }
+                                        com_chk(com_bingos[i-1][row_idx], true);
+                                        com_bingos[i-1][row_idx] = true;
+                                        return;
+                                    }
+                                }
+                            }
+                            break;
+                    }
+                    break;
+            }
+        }
+        else{
+            switch(col_row_ran % 2){
+                    case 0:
+                        for(var i = 0; i<5; i++){
+                            if(com_bingos[i][row_idx] === true){
+                                if(i-1 >= 0 && com_bingos[i-1][row_idx] !== true){
+                                    for(var j = 1; j<=25; j++){
+                                        search_num = document.getElementById("com_"+j);
+                                        if(search_num.innerHTML == com_bingos[i-1][row_idx]){
+                                            search_num.style.backgroundColor = "royalblue";
+                                        }
+                                    }
+                                    com_chk(com_bingos[i-1][row_idx], true);
+                                    com_bingos[i-1][row_idx] = true;
+                                    return;
+                                }
+                                else if(i+1 <= 4 && com_bingos[i+1][row_idx] !== true){
+                                    for(var j = 1; j<=25; j++){
+                                        search_num = document.getElementById("com_"+j);
+                                        if(search_num.innerHTML == com_bingos[i+1][row_idx]){
+                                            search_num.style.backgroundColor = "royalblue";
+                                        }
+                                    }
+                                    com_chk(com_bingos[i+1][row_idx], true);
+                                    com_bingos[i+1][row_idx] = true;
+                                    return;
+                                }
+                            }
+                        }
+                        break;
+                    case 1:
+                        for(var i = 0; i<5; i++){
+                            if(com_bingos[i][row_idx] === true){
+                                if(i+1 <= 4 && com_bingos[i+1][row_idx] !== true){
+                                    for(var j = 1; j<=25; j++){
+                                        search_num = document.getElementById("com_"+j);
+                                        if(search_num.innerHTML == com_bingos[i+1][row_idx]){
+                                            search_num.style.backgroundColor = "royalblue";
+                                        }
+                                    }
+                                    com_chk(com_bingos[i+1][row_idx], true);
+                                    com_bingos[i+1][row_idx] = true;
+                                    return;
+                                }
+                                else if(i-1 >= 0 && com_bingos[i-1][row_idx] !== true){
+                                    for(var j = 1; j<=25; j++){
+                                        search_num = document.getElementById("com_"+j);
+                                        if(search_num.innerHTML == com_bingos[i-1][row_idx]){
+                                            search_num.style.backgroundColor = "royalblue";
+                                        }
+                                    }
+                                    com_chk(com_bingos[i-1][row_idx], true);
+                                    com_bingos[i-1][row_idx] = true;
+                                    return;
+                                }
+                            }
+                        }
+                        break;
+                }
+        }
+                
+    }
+    function user_win(){
+        isStart = false;
+        isEnd = true;
+        alert("빙고완성! 유저승리!");
+        clearTimeout(think_animate);
+        thinkingText.innerHTML = "유저승리!";
+    }
+    function com_win(){
+        isStart = false;
+        isEnd = true;
+        alert("빙고완성! 컴퓨터승리!");
+        clearTimeout(think_animate);
+        thinkingText.innerHTML = "컴퓨터승리!";
+    }
 
     function user_bingo_chk(chk_num, isCheck){
-        var bingo_count = 0;
+        var user_bingo_count = 0;
         var line_num = parseInt(chk_num / 5);
         if(chk_num % 5 == 0){
             line_num--;
@@ -259,62 +648,61 @@
         var col_num = (chk_num-1) % 5;
         user_bingos[line_num][col_num] = isCheck;
         for(var i = 0; i<5; i++){
-            if(user_bingos[i][i] == true){
-                bingo_count++;
+            if(user_bingos[i][i] === true){
+                user_bingo_count++;
             }
-            if(bingo_count == 5){
-                alert("빙고완성! 유저승리!");
+            if(user_bingo_count == 5){
+                user_win();
                 return;
             }
         }
-        bingo_count = 0;
+        user_bingo_count = 0;
         for(var i =0; i<5; i++){
-            if(user_bingos[i][4-i] == true){
-                bingo_count++;
+            if(user_bingos[i][4-i] === true){
+                user_bingo_count++;
             }
-            if(bingo_count == 5){
-                alert("빙고완성! 유저승리!");
+            if(user_bingo_count == 5){
+                user_win();
                 return;
             }
         }
         for(var i = 0; i<5; i++){
-            var bingo_count = 0;
+            var user_bingo_count = 0;
             for(var j = 0; j<5; j++){
-                if(user_bingos[i][j] == true){
-                    bingo_count++;
+                if(user_bingos[i][j] === true){
+                    user_bingo_count++;
                 }
             }
-            if(bingo_count == 5){
-                alert("빙고완성! 유저승리!");
+            if(user_bingo_count == 5){
+                user_win();
                 return;
             }
         }
         for(var i = 0; i<5; i++){
-            var bingo_count = 0;
+            var user_bingo_count = 0;
             for(var j = 0; j<5; j++){
-                if(user_bingos[j][i] == true){
-                    bingo_count++;
+                if(user_bingos[j][i] === true){
+                    user_bingo_count++;
                 }
             }
-            if(bingo_count == 5){
-                alert("빙고완성! 유저승리!");
+            if(user_bingo_count == 5){
+                user_win();
                 return;
             }
         }
     }
-
+    var col_count = new Array(5);
+    var row_count = new Array(5);
+    var leftUp_rightDown = 0;
+    var rightUp_leftDown = 0;
+    var search_num;
     function com_bingo_chk(chk_num, isCheck){
-        var bingo_count = 0;
-        // var line_num = parseInt(chk_num / 5);
-        // if(chk_num % 5 == 0){
-        //     line_num--;
-        // }
-        // var col_num = (chk_num-1) % 5;
+        var com_bingo_count = 0;
         for(var i = 0; i<com_bingos.length; i++){
             for(var j = 0; j<com_bingos[i].length; j++){
                 if(com_bingos[i][j] == chk_num){
                     for(var k = 1; k<=25; k++){
-                        var search_num = document.getElementById("com_"+k);
+                        search_num = document.getElementById("com_"+k);
                         if(search_num.innerHTML == chk_num){
                             search_num.style.backgroundColor = "royalblue";
                         }
@@ -324,45 +712,49 @@
             }
         }
         for(var i = 0; i<5; i++){
-            if(com_bingos[i][i] == true){
-                bingo_count++;
+            if(com_bingos[i][i] === true){
+                com_bingo_count++;
             }
-            if(bingo_count == 5){
-                alert("빙고완성! 컴퓨터 승리!");
+            if(com_bingo_count == 5){
+                com_win();
                 return;
             }
         }
-        bingo_count = 0;
+        leftUp_rightDown = com_bingo_count;
+        com_bingo_count = 0;
         for(var i =0; i<5; i++){
-            if(com_bingos[i][4-i] == true){
-                bingo_count++;
+            if(com_bingos[i][4-i] === true){
+                com_bingo_count++;
             }
-            if(bingo_count == 5){
-                alert("빙고완성! 컴퓨터 승리!");
+            if(com_bingo_count == 5){
+                com_win();
+                return;
+            }
+        }
+        rightUp_leftDown = com_bingo_count;
+        for(var i = 0; i<5; i++){
+            var com_bingo_count = 0;
+            for(var j = 0; j<5; j++){
+                if(com_bingos[i][j] === true){
+                    com_bingo_count++;
+                }
+            }
+            col_count[i] = com_bingo_count;
+            if(com_bingo_count == 5){
+                com_win();
                 return;
             }
         }
         for(var i = 0; i<5; i++){
-            var bingo_count = 0;
+            var com_bingo_count = 0;
             for(var j = 0; j<5; j++){
-                if(com_bingos[i][j] == true){
-                    bingo_count++;
+                if(com_bingos[j][i] === true){
+                    com_bingo_count++;
                 }
             }
-            if(bingo_count == 5){
-                alert("빙고완성! 컴퓨터 승리!");
-                return;
-            }
-        }
-        for(var i = 0; i<5; i++){
-            var bingo_count = 0;
-            for(var j = 0; j<5; j++){
-                if(com_bingos[j][i] == true){
-                    bingo_count++;
-                }
-            }
-            if(bingo_count == 5){
-                alert("빙고완성! 컴퓨터 승리!");
+            row_count[i] = com_bingo_count;
+            if(com_bingo_count == 5){
+                com_win();
                 return;
             }
         }
