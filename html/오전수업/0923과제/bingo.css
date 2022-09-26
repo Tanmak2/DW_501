@@ -56,6 +56,9 @@ body{
     height: 500px;
     border: 1px solid black;
 }
+.com_bingo_box .bingo_boxes{
+    color: white;
+}
 .bingo_line{
     width: 500px;
     height: 100px;
