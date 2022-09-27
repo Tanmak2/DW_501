@@ -17,10 +17,9 @@ body{
     margin-bottom: 50px;
 }
 .miro_wrap{
-    width: 750px;
-    height: 750px;
+    width: 800px;
+    height: 800px;
     margin: 0 auto;
-    border: 1px solid black;
 }
 .miro_row{
     width: 750px;
@@ -34,5 +33,5 @@ body{
 .miro_col{
     width: 75px;
     height: 75px;
-    border: 1px solid black;
+    box-sizing: border-box;
 }

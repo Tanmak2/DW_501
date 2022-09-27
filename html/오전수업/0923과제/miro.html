@@ -7,12 +7,12 @@
     <title>미로탈출</title>
     <link rel="stylesheet" href="miro.css">
 </head>
-<body>
+<body onload="user_animate()">
     <div class="main_wrap">
         <div class="game_title">미로 탈출!</div>
         <div class="miro_wrap">
             <div class="miro_row">
-                <div class="miro_col" id="miro_00">A/</div>
+                <div class="miro_col" id="miro_00">👫</div>
                 <div class="miro_col" id="miro_01"></div>
                 <div class="miro_col" id="miro_02"></div>
                 <div class="miro_col" id="miro_03"></div>
@@ -137,8 +137,13 @@
 <script>
     var miro_arr = new Array(10);
     var user_gps = new Array(2);
+    var user_ani;
+    var user_ani_conut = 0;
     user_gps = [0, 0];
     var user_gps_div = document.getElementById("miro_"+user_gps[0]+""+user_gps[1]);
+    user_gps_div.style.borderBottom = "3px solid black";
+    user_gps_div.style.borderTop = "3px solid black";
+    user_gps_div.style.borderLeft = "3px solid black";
     for(i = 0; i<miro_arr.length; i++){
         miro_arr[i] = new Array(10);
     }
@@ -154,6 +159,31 @@
     miro_arr[9] = [1, 1, 1, 1, 0, 1, 1, 1, 0, 1];
     
     document.addEventListener("keydown", move);
+    function user_animate(){
+        if(user_ani_conut === 0){
+            user_gps_div.style.lineHeight = "60px";
+            user_ani_conut++;
+        }
+        else{
+            user_gps_div.style.lineHeight = "75px";
+            user_ani_conut = 0;
+        }
+        user_ani = setTimeout(user_animate, 150);
+    }
+    function road(){
+        if(user_gps[1] <= 0 ||miro_arr[user_gps[0]][user_gps[1]-1] === 0){
+            user_gps_div.style.borderLeft = "3px solid black";
+        }
+        if( user_gps[0] <= 0 || miro_arr[user_gps[0]-1][user_gps[1]] === 0){
+            user_gps_div.style.borderTop = "3px solid black";
+        }
+        if(user_gps[1] >= 9 || miro_arr[user_gps[0]][user_gps[1]+1] === 0){
+            user_gps_div.style.borderRight = "3px solid black";
+        }
+        if(user_gps[0] >= 9 || miro_arr[user_gps[0]+1][user_gps[1]] === 0){
+            user_gps_div.style.borderBottom = "3px solid black";
+        }
+    }
     function move(key){
         switch(key.keyCode){
             case 37:
@@ -164,7 +194,8 @@
                     user_gps_div.innerHTML = "";
                     user_gps[1]--;
                     user_gps_div = document.getElementById("miro_"+user_gps[0]+""+user_gps[1]);
-                    user_gps_div.innerHTML = "A/";
+                    user_gps_div.innerHTML = "👫";
+                    road();
                 }
                 break;
             case 38:
@@ -175,7 +206,8 @@
                     user_gps_div.innerHTML = "";
                     user_gps[0]--;
                     user_gps_div = document.getElementById("miro_"+user_gps[0]+""+user_gps[1]);
-                    user_gps_div.innerHTML = "A/";
+                    user_gps_div.innerHTML = "👫";
+                    road();
                 }
                 break;
             case 39:
@@ -186,7 +218,8 @@
                     user_gps_div.innerHTML = "";
                     user_gps[1]++;
                     user_gps_div = document.getElementById("miro_"+user_gps[0]+""+user_gps[1]);
-                    user_gps_div.innerHTML = "A/";
+                    user_gps_div.innerHTML = "👫";
+                    road();
                 }
                 break;
             case 40:
@@ -197,7 +230,8 @@
                     user_gps_div.innerHTML = "";
                     user_gps[0]++;
                     user_gps_div = document.getElementById("miro_"+user_gps[0]+""+user_gps[1]);
-                    user_gps_div.innerHTML = "A/";
+                    user_gps_div.innerHTML = "👫";
+                    road();
                 }
                 if(user_gps[0] === 9 && user_gps[1] === 9){
                     alert("탈출 성공!");
