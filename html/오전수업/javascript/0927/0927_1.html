@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_array.html</title>
+</head>
+<body>
+    <div>
+        <input type="number" id="quan" placeholder="고구마 수량 입력">
+        <button onclick="enroll()">입력</button>
+    </div>
+    <div id="result"></div>
+</body>
+<script>    
+    var res = document.getElementById("result");
+    var g = 0;
+    
+    function enroll(){
+        var sweet_box = new Array();
+        g = 0;
+        var sweet_num = document.getElementById("quan").value;
+        
+        for(var i = 1; i <= sweet_num; i++){
+            var sweet_weight = Math.floor(Math.random()*200)+200;
+            sweet_box.push(sweet_weight);
+        }
+        for(var i = 0; i<sweet_box.length; i++){
+            console.log("sweet_box["+i+"] = "+sweet_box[i]);
+            g += sweet_box[i]
+            
+        }
+        res.innerHTML = "1번째 고구마 상자는 : "+(g/1000)+"kg 입니다.";
+    }
+</script>
+</html>

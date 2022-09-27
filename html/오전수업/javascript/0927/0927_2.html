@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js_array2.html</title>
+    
+</head>
+<body>
+    <div>
+        <input type="file" id="docread">
+    </div>
+</body>
+<script>
+    document.getElementById("docread").addEventListener("change", readFlie);
+
+    async function readFlie(e){
+        var file = e.target.files[0];
+        if(!file){
+            return;
+        }
+        var text = await file.text();
+        alert(text);
+        // var reader = new FileReader();
+        // reader.onload = function(e){
+        //     filedata = e.target.result;
+        // };
+        // alert(reader.readAsText(file, "euc-kr"));
+    }
+</script>
+</html>
