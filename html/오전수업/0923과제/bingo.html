@@ -228,11 +228,11 @@
             isUser = false;
             com_ai_think = setTimeout(com_ai, 1000);
         }
+        isStart = true;
         user_thinking();
         user_bingo_input();
         com_bingo_input();
         btn.innerHTML = "다시하기";
-        isStart = true;
     }
     function user_bingo_input(){
         for(var i = 0; i<user_bingos.length; i++){
@@ -242,7 +242,7 @@
         var y = 0;
         for(var i = 1; i<=25; i++){
             var user_num = document.getElementById("user_"+i);
-            var user_ran = Math.floor(Math.random()*100)+1;
+            var user_ran = Math.floor(Math.random()*50)+1;
             isNum = false;
             for(var j = 0; j<user_bingos.length; j++){
                 if(isNum){
@@ -276,7 +276,7 @@
         var y = 0;
         for(var i = 1; i<=25; i++){
             var com_num = document.getElementById("com_"+i);
-            var com_ran = Math.floor(Math.random()*100)+1;
+            var com_ran = Math.floor(Math.random()*50)+1;
             isNum = false;
             for(var j = 0; j<com_bingos.length; j++){
                 if(isNum){
