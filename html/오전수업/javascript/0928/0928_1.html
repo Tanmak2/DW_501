@@ -16,10 +16,13 @@
     </style>
 </head>
 <body>
+    <button onclick="appear()">번호검색</button>
     <div><input type="file" id="docread"></div>
+    <input type="number" id="cnt">
+    <button onclick="high_low()">숫자찾기</button>
     <div>
         <ul>
-            <li id="list">회차</li>
+            <li id="lists">회차</li>
             <li id="date">발표일</li>
             <li id="num1">번호1</li>
             <li id="num2">번호2</li>
@@ -29,10 +32,11 @@
             <li id="num6">번호6</li>
         </ul>
     </div>
+    <div id="list"></div>
 </body>
 <script>
     document.getElementById("docread").addEventListener("change", readFlie);
-
+    var out = "";
     async function readFlie(e){
         var file = e.target.files[0];
         if(!file){
@@ -40,33 +44,73 @@
         }
         var text = await file.text();
         list = text.split("\n");
-        var list_out = "회차<br>";
-        var date_out = "발표일<br>";
-        var num1_out = "번호1<br>";
-        var num2_out = "번호2<br>";
-        var num3_out = "번호3<br>";
-        var num4_out = "번호4<br>";
-        var num5_out = "번호5<br>";
-        var num6_out = "번호6<br>";
+        // var list_out = "회차<br>";
+        // var date_out = "발표일<br>";
+        // var num1_out = "번호1<br>";
+        // var num2_out = "번호2<br>";
+        // var num3_out = "번호3<br>";
+        // var num4_out = "번호4<br>";
+        // var num5_out = "번호5<br>";
+        // var num6_out = "번호6<br>";
         for(let i in list){
-            var temp = list[i].split("\t");
-            list_out += temp[0]+"<br>";
-            date_out += temp[1]+"<br>";
-            num1_out += temp[2]+"<br>";
-            num2_out += temp[3]+"<br>";
-            num3_out += temp[4]+"<br>";
-            num4_out += temp[5]+"<br>";
-            num5_out += temp[6]+"<br>";
-            num6_out += temp[7]+"<br>";
+            out += "<div>"+list[i]+"</div>";
+        //     var temp = list[i].split("\t");
+        //     list_out += temp[0]+"<br>";
+        //     date_out += temp[1]+"<br>";
+        //     num1_out += temp[2]+"<br>";
+        //     num2_out += temp[3]+"<br>";
+        //     num3_out += temp[4]+"<br>";
+        //     num4_out += temp[5]+"<br>";
+        //     num5_out += temp[6]+"<br>";
+        //     num6_out += temp[7]+"<br>";
         }
-        document.getElementById("list").innerHTML = list_out;
-        document.getElementById("date").innerHTML = date_out;
-        document.getElementById("num1").innerHTML = num1_out;
-        document.getElementById("num2").innerHTML = num2_out;
-        document.getElementById("num3").innerHTML = num3_out;
-        document.getElementById("num4").innerHTML = num4_out;
-        document.getElementById("num5").innerHTML = num5_out;
-        document.getElementById("num6").innerHTML = num6_out;
+        document.getElementById("list").innerHTML = out;
+        // document.getElementById("date").innerHTML = date_out;
+        // document.getElementById("num1").innerHTML = num1_out;
+        // document.getElementById("num2").innerHTML = num2_out;
+        // document.getElementById("num3").innerHTML = num3_out;
+        // document.getElementById("num4").innerHTML = num4_out;
+        // document.getElementById("num5").innerHTML = num5_out;
+        // document.getElementById("num6").innerHTML = num6_out;
+    }
+
+    function appear(){
+        var number = new Array(45);
+        number.fill(0);
+        for(var i in list){
+            var temp = list[i].split("\t");
+            for(var k=2; k<temp.length; k++){
+                number[temp[k]-1]++;
+            }
+        }
+
+        var view = "";
+        for(var i in number){
+            view += "<div>"+(parseInt(i)+1)+"=> "+ number[i]+"개</div>";
+        }
+        document.getElementById("list").innerHTML = view;
+    }
+
+    function high_low(){
+        var number = new Array(45);
+        var count = document.getElementById("cnt").value;
+        number.fill(0);
+        for(var i=0; i<count; i++){
+            var temp = list[i].split("\t");
+            for(var k=2; k<temp.length; k++){
+                number[temp[k]-1]++;
+            }
+        }
+        var view = "";
+        for(var i in number){
+            if(number[i] === 0){
+                view += "<div>"+(parseInt(i)+1)+"=> "+number[i]+"개</div>";
+            }
+            if(number[i] >= 15){
+                view += "<div>"+(parseInt(i)+1)+"=> "+number[i]+"개</div>";
+            }
+        }
+        document.getElementById("list").innerHTML = view;
     }
 
 </script>
