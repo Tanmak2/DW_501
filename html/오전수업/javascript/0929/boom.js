@@ -14,14 +14,24 @@ window.onload = function(){
     for (var i = 0; i < 20; i++){
         table += "<tr>";
         for (var k = 0; k<20; k++){
-            if(board[i*20+k] == 1){
-                table += '<td><img src="../../image/boom.png"></td>';
-            }
-            else{
-                table += "<td></td>";
-            }
+                table += '<td class="bm" data-idx='+(i * 20 + k)+'></td>';
         }
-        table += "</td>";
+        table += "</tr>";
     }
     document.getElementById("wrap").innerHTML = table;
+
+    var bm = document.getElementsByClassName("bm");
+    for(var i in bm){
+        bm[i].addEventListener('click', function(){
+            let n = this.dataset.idx;
+            if(board[n] == 1){
+                this.style.background = 'url(../../image/boom.png) no-repeat center center';
+                this.style.backgroundSize = 'cover';
+            }
+            else{
+                this.style.background = 'rgb(230,230,230)';
+            }
+        });
+    }
+
 }

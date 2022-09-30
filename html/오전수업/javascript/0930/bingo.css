@@ -1,0 +1,24 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+  ;
+}
+
+table tr td {
+  width: 80px;
+  height: 80px;
+  border: 1px solid lightskyblue;
+  border-radius: 15px;
+  text-align: center;
+  color: rgb(189, 189, 189);
+  /* border: 1px solid black; */
+}
+
+table {
+  border-spacing: 0;
+}
+tr{
+  width: 400px;
+  margin-top: 10px;
+}
