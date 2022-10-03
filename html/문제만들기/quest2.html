@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest2</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main_wrap{
+            width: 100%;
+            height: auto;
+        }
+        .main_box{
+            width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+        }
+        .main_title{
+            width: 1200px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .main_content{
+            width: 1200px;
+            height: auto;
+            font-size: 20px;
+        }
+        .back{
+            width: 1200px;
+            height: auto;
+            color: white;
+            font-size: 20px;
+            font-weight: 900;
+            background-color: rgb(50, 50, 50);
+        }
+        .violet{
+            color: violet;
+        }
+        .yellow{
+            color: yellow;
+        }
+        .royalblue{
+            color: royalblue;
+        }
+        .deepskyblue{
+            color: deepskyblue;
+        }
+        .coral{
+            color: coral;
+        }
+        input{
+            width: 20px;
+            height: 18px;
+            margin-bottom: 5px;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_wrap">
+        <div class="main_box">
+            <div class="main_title">문제2</div>
+            <div class="main_content">
+                <div>이중for문을 이용해서 구구단을 만들었다.<br>
+                    아래의 코드를 완성해주세요!
+                </div><br>
+                <div class="back">&nbsp;<span class="violet">for </span><span class="yellow">( </span><span class="royalblue">int </span><span class="deepskyblue">i</span>=<input type="text" id="quest2_1">; <span class="deepskyblue">i</span>&lt;=<input type="text" id="quest2_2">; <span class="deepskyblue">i</span>++<span class="yellow">){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="violet">for </span><span class="yellow">( </span><span class="royalblue">int </span><span class="deepskyblue">j</span>=<input type="text" id="quest2_3">; <span class="deepskyblue">j</span>&lt;=<input type="text" id="quest2_4">; <span class="deepskyblue">j</span>++<span class="yellow">){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="deepskyblue">System</span>.<span class="deepskyblue">out</span>.<span class="deepskyblue">println</span><span class="yellow">(</span><span class="deepskyblue">i</span> + <span class="coral">" * "</span> + <span class="deepskyblue">j</span> + <span class="coral">" = "</span> + <span class="deepskyblue">i</span> * <span class="deepskyblue">j</span><span class="yellow">)</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">}</span><br>
+                    &nbsp;<span class="yellow">}</span><br>
+                    &nbsp;
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div>결과값 <button onclick="answer_result(2)">정답체크</button></div>
+            <hr>
+            <div id="quest2_result"></div>
+        </div>
+    </div>
+</body>
+<script src="quest.js"></script>
+</html>

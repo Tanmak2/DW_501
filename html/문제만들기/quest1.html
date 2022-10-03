@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest1</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main_wrap{
+            width: 100%;
+            height: auto;
+        }
+        .main_box{
+            width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+        }
+        .main_title{
+            width: 1200px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .main_content{
+            width: 1200px;
+            height: auto;
+            font-size: 20px;
+        }
+        .back{
+            width: 1200px;
+            height: auto;
+            color: white;
+            font-size: 20px;
+            font-weight: 900;
+            background-color: rgb(50, 50, 50);
+        }
+        .violet{
+            color: violet;
+        }
+        .yellow{
+            color: yellow;
+        }
+        .royalblue{
+            color: royalblue;
+        }
+        .deepskyblue{
+            color: deepskyblue;
+        }
+        .coral{
+            color: coral;
+        }
+        input{
+            width: 70px;
+            height: 18px;
+            margin-bottom: 5px;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_wrap">
+        <div class="main_box">
+            <div class="main_title">문제1</div>
+            <div class="main_content">
+                <div>1~100 사이의 짝수의 합과 홀수의 합을 구하시오!<br>
+                    아래의 코드를 완성해주세요!<br>
+                    <b>※코드 작성 시 띄어쓰기 없이 작성해주세요!</b>
+                </div><br>
+                <div class="back">
+                    &nbsp;<span class="royalblue">int </span><span class="deepskyblue">even_sum </span>= 0;<br>
+                    &nbsp;<span class="royalblue">int </span><span class="deepskyblue">odd_sum </span>= 0;<br><br>
+                    &nbsp;<span class="violet">for </span><span class="yellow">( </span><span class="royalblue">int </span><span class="deepskyblue">i</span>=1; <span class="deepskyblue">i</span>&lt;=100; <span class="deepskyblue">i</span>++<span class="yellow">){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="violet">if </span><span class="yellow">( </span><input type="text" id="quest1_1"> == <input type="text" id="quest1_2"><span class="yellow">){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="quest1_3"> += <input type="text" id="quest1_4">;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">}</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="violet">else</span><span class="yellow">{</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="quest1_5"> += <input type="text" id="quest1_6">;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">}</span><br>
+                    &nbsp;<span class="yellow">}</span><br>
+                    &nbsp;<span class="deepskyblue">System</span>.<span class="deepskyblue">out</span>.<span class="deepskyblue">println</span><span class="yellow">(</span><span class="coral">"짝수의 합은 : "</span> + <span class="deepskyblue">even_sum</span><span class="yellow">)</span>;<br>
+                    &nbsp;<span class="deepskyblue">System</span>.<span class="deepskyblue">out</span>.<span class="deepskyblue">println</span><span class="yellow">(</span><span class="coral">"홀수의 합은 : "</span> + <span class="deepskyblue">odd_sum</span><span class="yellow">)</span>;<br>
+                    &nbsp;
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div>결과값 <button onclick="answer_result(1)">정답체크</button></div>
+            <hr>
+            <div id="quest1_result"></div>
+        </div>
+    </div>
+</body>
+<script src="quest.js"></script>
+</html>
