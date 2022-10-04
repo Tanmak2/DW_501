@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quest2</title>
+    <title>Quest3</title>
     <style>
         body{
             padding: 0;
@@ -55,8 +55,11 @@
         .coral{
             color: coral;
         }
+        .darkgreen{
+            color: darkgreen;
+        }
         input{
-            width: 20px;
+            width: 100px;
             height: 18px;
             margin-bottom: 5px;
             padding: 0;
@@ -66,25 +69,24 @@
 <body>
     <div class="main_wrap">
         <div class="main_box">
-            <div class="main_title">문제2</div>
+            <div class="main_title">문제3</div>
             <div class="main_content">
-                <div>이중for문을 이용해서 구구단을 만들었다.<br>
-                    아래의 코드를 완성해주세요!<br>
+                <div>DW_501이라는 배열안에 사람들 이름이 적혀있다<br>
+                    아래 결과값과 같이 출력할수 있도록 코드를 완성해라<br>
                     <b>※코드 작성 시 띄어쓰기 없이 작성해주세요!</b>
                 </div><br>
-                <div class="back">&nbsp;<span class="violet">for </span><span class="yellow">( </span><span class="royalblue">int </span><span class="deepskyblue">i</span>=<input type="text" id="quest2_1">; <span class="deepskyblue">i</span>&lt;=<input type="text" id="quest2_2">; <span class="deepskyblue">i</span>++<span class="yellow">){</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="violet">for </span><span class="yellow">( </span><span class="royalblue">int </span><span class="deepskyblue">j</span>=<input type="text" id="quest2_3">; <span class="deepskyblue">j</span>&lt;=<input type="text" id="quest2_4">; <span class="deepskyblue">j</span>++<span class="yellow">){</span><br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="deepskyblue">System</span>.<span class="deepskyblue">out</span>.<span class="deepskyblue">println</span><span class="yellow">(</span><span class="deepskyblue">i</span> + <span class="coral">" * "</span> + <span class="deepskyblue">j</span> + <span class="coral">" = "</span> + <input type="text" id="quest2_5"><span class="yellow">)</span>;<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">}</span><br>
+                <div class="back">&nbsp;<span class="darkgreen">String</span><span class="deepskyblue"> DW_501</span> = <span class="yellow">[</span><span class="coral">"윤재영"</span>,<span class="coral"> "김재영"</span>,<span class="coral"> "최재영"</span>,<span class="coral"> "박재영"</span><span class="yellow">]</span>;<br>
+                    &nbsp;<span class="violet">for </span><span class="yellow">( </span><span class="royalblue">int </span><span class="deepskyblue">i</span>=0; <span class="deepskyblue">i</span>&lt;<input type="text" id="quest3_1">; <span class="deepskyblue">i</span>++<span class="yellow">){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="deepskyblue">System</span>.<span class="deepskyblue">out</span>.<span class="deepskyblue">println</span><span class="yellow">(</span><input type="text" id="quest3_2" style="width: 80px;"><span class="yellow">)</span>;<br>
                     &nbsp;<span class="yellow">}</span><br>
                     &nbsp;
                 </div>
             </div>
             <br>
             <hr>
-            <div>결과값 <button onclick="answer_result(2)">정답체크</button></div>
+            <div>결과값 <button onclick="answer_result(3)">정답체크</button></div>
             <hr>
-            <div id="quest2_result"></div>
+            <div id="quest3_result"></div>
         </div>
     </div>
 </body>

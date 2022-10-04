@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quest5</title>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .main_wrap{
+            width: 100%;
+            height: auto;
+        }
+        .main_box{
+            width: 1200px;
+            height: 800px;
+            margin: 0 auto;
+        }
+        .main_title{
+            width: 1200px;
+            height: 100px;
+            line-height: 100px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .main_content{
+            width: 1200px;
+            height: auto;
+            font-size: 20px;
+        }
+        .back{
+            width: 1200px;
+            height: auto;
+            color: white;
+            font-size: 20px;
+            font-weight: 900;
+            background-color: rgb(50, 50, 50);
+        }
+        .violet{
+            color: violet;
+        }
+        .yellow{
+            color: yellow;
+        }
+        .royalblue{
+            color: royalblue;
+        }
+        .deepskyblue{
+            color: deepskyblue;
+        }
+        .coral{
+            color: coral;
+        }
+        .darkgreen{
+            color: darkgreen;
+        }
+        input{
+            width: 100px;
+            height: 18px;
+            margin-bottom: 5px;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="main_wrap">
+        <div class="main_box">
+            <div class="main_title">문제5</div>
+            <div class="main_content">
+                <div>여러개의 메소드를 만들었다<br>
+                    아래 결과값과 같이 출력할수 있도록 코드를 완성해라<br>
+                    <b>※코드 작성 시 띄어쓰기 없이 작성해주세요!</b>
+                </div><br>
+                <div class="back">&nbsp;<span class="coral">public int </span><span class="deepskyblue">price</span><span class="yellow">( </span><span class="royalblue">int</span> <span class="deepskyblue">x</span>, <span class="royalblue">int</span> <span class="deepskyblue">y</span><span class="yellow"> ){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="violet">if </span><span class="yellow">( </span><span class="deepskyblue">x</span> + <span class="deepskyblue">y</span> == <span class="deepskyblue">500 </span><span class="yellow">){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="royalblue">return </span><span class="deepskyblue">500</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">}</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="royalblue">return </span><input type="text" id="quest5_1">;<br>
+                    &nbsp;<span class="yellow">}</span><br>
+                    &nbsp;<span class="coral">public String </span><span class="deepskyblue">food</span><span class="yellow">( </span><span class="royalblue">String</span> <span class="deepskyblue">x</span><span class="yellow"> ){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="violet">if </span><span class="yellow">( </span><span class="deepskyblue">x</span> == <span class="coral">"떡볶이"</span><span class="yellow"> ){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="royalblue">return </span><span class="coral">"분식"</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="yellow">}</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="royalblue">return </span><span class="coral">"음식"</span>;<br>
+                    &nbsp;<span class="yellow">}</span><br>
+                    &nbsp;<span class="deepskyblue">main</span><span class="yellow">(){</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="deepskyblue">System</span>.<span class="deepskyblue">out</span>.<span class="deepskyblue">println</span><span class="yellow">(</span><span class="deepskyblue"> price</span><span class="yellow">( </span><span class="deepskyblue">300</span>, <span class="deepskyblue">150</span><span class="yellow"> )</span><span class="yellow">)</span>;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="deepskyblue">System</span>.<span class="deepskyblue">out</span>.<span class="deepskyblue">println</span><span class="yellow">(</span><span class="deepskyblue"> food</span><span class="yellow">( </span><input type="text" id="quest5_2"><span class="yellow"> )</span><span class="yellow">)</span>;<br>
+                    &nbsp;<span class="yellow">}</span><br>
+                    &nbsp;
+                </div>
+            </div>
+            <br>
+            <hr>
+            <div>결과값 <button onclick="answer_result(5)">정답체크</button></div>
+            <hr>
+            <div id="quest5_result"></div>
+        </div>
+    </div>
+</body>
+<script src="quest.js"></script>
+</html>
