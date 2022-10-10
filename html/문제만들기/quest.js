@@ -165,6 +165,15 @@ function answer_result(quest){
                 alert("오답입니다. 다시 입력해주세요");
             }
             break;
+        case 6:
+            var q1 = document.getElementById("quest6_1").value;
+            if(q1 == -1){
+                alert("정답입니다! 다음 문제를 풀어주세요!");
+                location.replace("index.html");
+            }
+            else{
+                alert("오답입니다. 다시 입력해주세요");
+            }
     }
 }
 //정답확인 버튼 메소드 종료
