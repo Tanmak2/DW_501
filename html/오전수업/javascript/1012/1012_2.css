@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+
+.main{
+    width: 100%;
+    height: auto;
+    text-align: center;
+}
+.main input{
+    width: 200px;
+    height: 35px;
+    font-size: 15px;
+}
+.main button{
+    width: 100px;
+    height: 37px;
+    font-size: 15px;
+}
+
+#birthday{
+    width: 500px;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#birthday ul li{
+    list-style-type: none;
+    display: inline-block;
+    margin-right: 20px;
+}
