@@ -24,6 +24,10 @@ var bt_check = false;
 var tb_list = new Array();
 
 function add(){
+    if(bt_check){
+        alert("값을 먼저 등록해주세요")
+        return;
+    }
     var setbt = document.createElement("button");
     setbt.appendChild(document.createTextNode("세팅"+(++cnt)));
     setbt.setAttribute("data-value","0");
@@ -64,7 +68,21 @@ function value_save(obj){
 
 function table_draw(obj){
     var div = document.getElementById("draw");
-
+    if(div.hasChildNodes()){
+        div.removeChild(div.firstChild);
+    }
     var data = tb_list[parseInt(obj.dataset.value)-1];
-    div.innerHTML = "행 : "+data.col+" 열 : "+data.row+" 너비 : "+data.width+" 높이 : "+data.height;
+    var table = document.createElement("table");
+    table.setAttribute("border",1);
+    for(var i = 0; i<data.row; i++){
+        var tr = document.createElement("tr");
+        tr.setAttribute("style","height:"+data.height+"px;");
+        table.appendChild(tr);
+        for(var j = 0; j<data.col; j++){
+            var td = document.createElement("td");
+            td.setAttribute("style","width:"+data.width+"px;")
+            tr.appendChild(td);
+        }
+    }
+    div.appendChild(table);
 }
