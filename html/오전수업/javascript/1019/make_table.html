@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>make_table.html</title>
+    <script>
+        function make_table(){
+            var url = "table_set.html";
+            var win_name = " ";
+            var width = 200;
+            var height = 100;
+            var left = 200;
+            var top = 50;
+            var option = "width="+width+",height="+height+",left="+left+",top="+top;
+
+            window.open(url,win_name,option);
+        }
+    </script>
+</head>
+<body>
+    <button onclick="make_table()">테이블만들기</button>
+    <div id="table"></div>
+</body>
+</html>

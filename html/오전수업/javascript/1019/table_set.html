@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table_set.html</title>
+    <script>
+        function create_table(){
+            var col = document.getElementById("col").value;
+            var row = document.getElementById("row").value;
+            var width = document.getElementById("width").value;
+            var height = document.getElementById("height").value;
+
+            var out = "<table border=1>";
+            for(var i=0; i<row; i++){
+                out += "<tr>";
+                for(var j=0; j<col; j++){
+                    out += '<td width='+width+' height='+height+'></td>';
+                }
+                out += "</tr>";
+            }
+            out += "</table>";
+
+            opener.document.getElementById("table").innerHTML = out;
+        }
+    </script>
+    <style>
+        input{
+            width: 76px;
+        }
+        label{
+            width: 32px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label for="col">행</label>
+        <input type="text" id="col">
+        <label for="row">열</label>
+        <input type="text" id="row"><br>
+        <label for="width">너비</label>
+        <input type="text" id="width">
+        <label for="height">높이</label>
+        <input type="text" id="height">
+    </div>
+    <button onclick="create_table()">테이블생성</button>
+</body>
+</html>
