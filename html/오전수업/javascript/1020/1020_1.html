@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+/*   
+
+// screen - 화면 정보 제공
+screen.width : 화면 전체 너비 (해상도 너비)
+screen.height : 화면 전체 높이 (해상도 높이)
+screen.acailWidth : 실제 사용 가능한 화면 너비
+screen.availHeigth : 실제 사용 가능한 화면 높이
+screen.colorDepth : 사용 가능한 색상수
+screen.pixelDepth : 한 픽셀당 비트 수
+*/
+setCookie("name","kim",1);
+
+function setCookie(쿠키이름, 데이터, 유효기간){
+    const day = new Date();
+    day.setTime(day.getTime() + (유효기간*24*60*60*1000));
+    let expires = "expires = " + day.toUTCString();
+    document.cookie = 쿠키이름 + "=" +데이터+";"+expires+";path=/";
+}
+
+function getCookie(){
+    let decode_cook = decodeURIComponent(document.cookie);
+    let temp = decode_cook.split(";");
+    for(let i =0; i<temp.length; i++){
+        let c = temp[i];
+        while(c.charAt(0) == ' '){
+            c = c.substring(1);
+        }
+        if(c.indexOf("name=") == 0){
+            alert(c.substring("name=".length, c.length));
+        }
+    }
+}
+getCookie();
+
+
+
+
+    </script>
+</head>
+<body>
+
+<form name="fm" method="get" action="save.html">
+    <input type="text" name="id" id="id" value="admin">
+    <input type="password" name="pw" id="pw">
+    <input type="date" name="day" id="day">
+    <input type="checkbox" name="fav" id="fav">
+    <a href="javascript:view()">보기</a>
+</form>
+<a href="1020_2.html">이동</a>
+</body>
+</html>
+<script>
+
+
+// form
+ //     document.getElementById("day").value
+ //     document.fm.id.value
+document.write("길이 : " + document.forms.length + "<br>"); // 폼 양식이 현재 몇개가 있는지 찾기
+document.write("첫번째 form name : " + document.forms[0].name + "<br>"); // 첫번째 form name 이름 찾기
+document.write(document.forms.fm.name + "<br>")  // 폼에대한 name값 출력
+document.write(document.all.fm.name + "<br>");  // 폼에대한 name값 출력
+document.write(document.forms["fm"].name + "<br>");  // 폼에대한 name값 출력
+document.write(document.forms[0].elements[0].value + "<br>"); // 폼에대한 name값 출력
+
+
+// document 객체
+document.write ("title : " + document.title + "<br>"); // 타이틀 이름 찾기
+document.write ("마지막 수정 : " + document.lastModified + "<br>"); // 마지막 수정 시간
+document.bgColor = "pink"; // 배경색 설정
+document.write ("배경색 : " + document.bgColor + "<br>"); // 배경색 출력
+document.write ("링크색 : " + document.linkColor + "<br>");
+document.write ("링크색 : " + document.alinkColor + "<br>");
+document.write ("링크색 : " + document.vlinkColor + "<br>");
+
+function view(){
+    var forms = document.forms; // 현재 문서의 form을 배열로 받기
+    for(var i in forms){
+        var tags = forms[i].elements; // 해당 form의 tag를 배열로 받기
+        for(var k in tags){
+            alert(tags[k].value);
+        }
+    }
+}
+
+</script>
