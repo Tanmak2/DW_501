@@ -30,7 +30,7 @@ def receive(sock):
 port = 9080
 
 clientSock = socket(AF_INET, SOCK_STREAM)
-clientSock.connect(('192.168.0.60', port))
+clientSock.connect(('192.168.0.35', port))
 
 print('접속 완료')
 
