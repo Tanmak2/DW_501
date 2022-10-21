@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var os = navigator.userAgent;
+        if(os.toLowerCase().indexOf("windows") != -1){
+            alert("현재 접속기기는 PC입니다");
+        }
+        else if(os.toLowerCase().indexOf("android") != -1){
+            alert("현재 접속기기는 모바일(안드로이드)입니다");
+        }
+        else if(os.toLowerCase().indexOf("iphone") != -1){
+            alert("현재 접속기기는 아이폰입니다");
+        }
+
+        var orient = window.orientation;
+        if(orient != undefined){
+            if(orient == 0){
+                alert("세로 방향");
+            }
+            else if(orient == -90 || orient == 90){
+                alert("가로 방향");
+            }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
