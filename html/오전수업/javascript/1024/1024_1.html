@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="canvas" width="1200" height="1200"></canvas>
+</body>
+</html>
+<script>
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext('2d');
+    ctx.fillStyle = "rgb(103,0,0)";
+    ctx.fillRect(400,300,100,200);
+    ctx.beginPath();
+    ctx.fillStyle = "rgb(0,216,255)"
+    ctx.arc(400,220,40,0,2*Math.PI,true);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.fillStyle = "rgb(0,216,255)"
+    ctx.arc(340,150,30,0,2*Math.PI,true);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.fillStyle = "rgb(0,216,255)"
+    ctx.arc(280,90,20,0,2*Math.PI,true);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    ctx.beginPath();
+    ctx.fillStyle="rgb(29,219,22)"
+    ctx.moveTo(300,500);
+    ctx.lineTo(800,300);
+    ctx.lineTo(1200,500);
+    ctx.fill();
+    ctx.stroke();
+    ctx.closePath();
+    ctx.fillStyle='rgb(242,203,97)'
+    ctx.fillRect(300,500,1000,500);
+</script>
