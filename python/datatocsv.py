@@ -1,5 +1,4 @@
 import csv
-from multiprocessing import managers
 import random
 
 fn = ['김','이','박','최','정','강','조','윤','장','임','한','오','서','신','권','황','안','송','류','전','홍','고','양','손','배','조','백']
