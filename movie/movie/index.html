@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input
+      type="text"
+      id="name"
+      placeholder="이름을 입력해주세요!"
+      value="뚱인데요"
+    />
+    <h3>해외 영화 검색하기</h3>
+    <input id="search" type="text" placeholder="검색어를 입력해주세요..." />
+    <select id="type">
+      <option value="movie">movie</option>
+      <option value="series">series</option>
+      <option value="episode">episode</option>
+    </select>
+    <button onclick="doSearch()">영화 검색</button>
+  </body>
+  <!-- Jquery CDN download -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.1.js"
+    integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    var name = document.getElementById('name').value;
+    // console.log(name);
+
+    var name2 = $('#name').val();
+    // console.log(name2);
+
+    const API_KEY = 'eda2abf5';
+
+    function doSearch() {
+      var search = $('#search').val();
+      var type = $('#type').val();
+      $.ajax({
+        url:
+          'http://www.omdbapi.com/?apiKey=' +
+          API_KEY +
+          '&s=' +
+          search +
+          '&type=' +
+          type +
+          '',
+        type: 'GET',
+        dataType: 'json',
+        success: function (response) {
+          console.log(response);
+        },
+      });
+    }
+  </script>
+</html>

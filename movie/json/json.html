@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    //json(Java Script Object Notation) 배워보기
+    var json = {
+      이름: '홍길동',
+      나이: 30,
+    };
+    console.log(json.이름);
+    console.log(json.나이);
+
+    var data = {
+      name: '홍길동',
+      money: 400,
+      bank: '카카오뱅크',
+    };
+
+    console.log(data.bank);
+    console.log(data.money);
+
+    var data2 = {
+      이름: '신짱구',
+      나이: 40,
+      취미: ['등산', '게임', '독서', '헬스'],
+      결혼여부: false,
+      키: 182.5,
+      가족: {
+        아빠이름: '신영만',
+        엄마이름: '봉미선',
+      },
+    };
+    console.log(data2.결혼여부);
+    console.log(data2.키);
+
+    console.log(data2.취미);
+
+    console.log(data2.가족.아빠이름);
+
+    var data3 = {
+      name: '보노보노',
+      money: [10, 50, 80, 90],
+    };
+    var total_money = 0;
+    for (var i = 0; i < data3.money.length; i++) {
+      total_money += data3.money[i];
+    }
+    document.write(total_money);
+
+    answer = 0;
+    for (var i = 7; i <= 13; i++) {
+      answer += i;
+    }
+    document.write(answer + '<br>');
+    /*
+        name : 영화제목
+        rank : 관객 수 순위
+        createdAt : 개봉 날짜
+        salesRevenue : 판매액
+        attendance : 관객수
+        */
+    const movies = [
+      {
+        name: '명량',
+        rank: 1,
+        createdAt: '2014-07-30',
+        salesRevenue: 135748398910,
+        attendance: 17613682,
+      },
+      {
+        name: '극한직업',
+        rank: 2,
+        createdAt: '2019-01-23',
+        salesRevenue: 139647979516,
+        attendance: 16264944,
+      },
+      {
+        name: '신과함께-죄와 벌',
+        rank: 3,
+        createdAt: '2014-07-30',
+        salesRevenue: 135748398910,
+        attendance: 17613682,
+      },
+      {
+        name: '국제시장',
+        rank: 4,
+        createdAt: '2014-07-30',
+        salesRevenue: 110913469630,
+        attendance: 14257115,
+      },
+      {
+        name: '어벤져스: 엔드게임',
+        rank: 5,
+        createdAt: '2019-04-24',
+        salesRevenue: 122182694160,
+        attendance: 13934592,
+      },
+    ];
+    /*
+        문제 1번.
+            모든 영화 이름, 개봉날짜, 순위 출력하시오.
+        문제 2번.
+            영화 명량과 어벤져스의 판매액 합산을 구하시오.
+        문제 3번.
+            1위 영화부터 5위 영화 판매액 평균을 구하시오.
+    */
+    for (var i = 0; i < movies.length; i++) {
+      document.write('영화제목 : ' + movies[i].name + ' ');
+      document.write('개봉날짜 : ' + movies[i].createdAt + ' ');
+      document.write('영화순위 : ' + movies[i].rank + '<br>');
+    }
+    document.write(
+      '명량과 어벤져스의 총 판매액은 : ' +
+        (movies[0].salesRevenue + movies[4].salesRevenue) +
+        '원<br>',
+    );
+
+    var sum = 0;
+    for (var i = 0; i < movies.length; i++) {
+      sum += movies[i].salesRevenue;
+    }
+    document.write(
+      '1위 영화부터 5위 영화 판매액 평균 : ' + parseInt(sum / 5) + '원',
+    );
+  </script>
+</html>
