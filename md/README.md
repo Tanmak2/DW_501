@@ -24,6 +24,3 @@
 안녕하세요 오늘은 md파일을 배웠어요!  
 오늘은 금요일입니다.
 
-https://velog.io/@zkdlcl5050/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4-%EC%84%9C%EB%B2%84-%EB%A7%8C%EB%93%A4%EA%B8%B0
-
-database-1.ctci74b4ljqg.ap-northeast-2.rds.amazonaws.com
