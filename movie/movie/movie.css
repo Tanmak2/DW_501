@@ -3,13 +3,18 @@ body {
   padding: 0;
   box-sizing: border-box;
   transition: 0.3s;
+  background-color: black;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .container {
-  padding: 20px;
+  position: relative;
   height: auto;
-  margin: 50px auto;
-  background-color: #999;
+}
+
+.movie-list {
+  padding: 20px;
+  background-color: #141414;
 }
 
 .title {
@@ -42,8 +47,89 @@ body {
   margin-top: 20px;
   margin-bottom: 0;
   font-size: 22px;
+  color: #fafafa;
 }
 
 .year {
   text-align: center;
+  color: #fafafa;
+}
+
+.movie-section {
+  visibility: hidden;
+  background-color: #141414;
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 100px;
+  display: flex;
+  width: 1700px;
+  margin: 100px auto;
+  justify-content: space-evenly;
+  padding: 40px 0;
+  font-weight: 400;
+  border: 1px solid #e3e6f0;
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+
+.back a {
+  text-decoration: none;
+  color: #e74a3b;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.movie-title {
+  font-size: 40px;
+  color: #fff;
+}
+
+.movie-rating {
+  padding-left: 5px;
+  margin-top: 20px;
+  color: #79b8f3;
+  display: flex;
+}
+
+.movie-rating span {
+  margin-right: 20px;
+}
+
+.movie-plot {
+  margin-top: 20px;
+  line-height: 2rem;
+  color: white;
+}
+
+.movie-info > div span:first-child {
+  padding: 10px 0;
+  color: #fff;
+  font-weight: 600;
+  width: 100px;
+  display: inline-block;
+}
+
+.movie-info > div span {
+  color: #79b8f3;
+}
+
+.fa-star {
+  color: #ff9300;
+}
+
+.fa-thumbs-up {
+  color: #fafafa;
+}
+
+.fa-film {
+  color: rgb(191, 213, 214);
+}
+
+.fa-calendar {
+  color: peachpuff;
+}
+
+.section-left {
+  margin-left: 30px;
 }
