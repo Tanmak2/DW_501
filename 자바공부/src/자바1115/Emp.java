@@ -10,4 +10,12 @@ public class Emp {
 		this.sal = sal;
 		this.job = job;
 	}
+	
+	void 볶음밥을먹다() {
+		
+	}
+	
+	void 볶음밥을먹다(int x) {
+		
+	}
 }

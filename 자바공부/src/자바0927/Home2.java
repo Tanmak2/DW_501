@@ -7,13 +7,9 @@ public class Home2 {
 		
 		영화관 a영화관 = new 영화관();
 		a영화관.set직원수(20);
-		a영화관.영화관위치찾자("대전 둔산동");
-		a영화관.영화관이름찾자("CGV 둔산점");
 		a영화관.개봉영화종류찾자(new String[] {"늑대사냥", "공조2: 인터내셔날", "아바타 리마스터링"});
 		
 		System.out.println("직원 수 : "+ a영화관.get직원수());
-		System.out.println("영화관 위치 : "+ a영화관.영화관위치리턴());
-		System.out.println("영화관 이름 : "+ a영화관.영화관이름리턴());
 		System.out.println("개봉영화 종류 : "+ a영화관.개봉영화종류리턴());
 		
 //		영화관 b영화관 = new 영화관();
