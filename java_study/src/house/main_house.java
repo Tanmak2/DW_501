@@ -7,6 +7,20 @@ public class main_house {
 		house_item[] t = new tv[]{new tv("삼성", 1230000, 65),new tv("LG", 1505000, 65),new tv("삼성", 890000, 55),new tv("LG", 2240000, 75),new tv("삼성", 730000, 50)};
 		house_item[] air = new aircon[]{new aircon("휘센", 1510510, 17),new aircon("캐리어", 1619800, 25),new aircon("휘센", 1587110, 30),new aircon("위니아", 189000, 17),new aircon("비스포크", 1878590, 19)};
 		
+		tv t1 = new tv();
+		t1.brand="";
+		t1.price=11;
+		t1.inch=20;
+		
+		house_item t2 = new tv();
+		
+		tv t3 = (tv)t2;
+		t3.inch=20;
+		
+		if(t3 instanceof tv) {
+			System.out.println("tv 객체 이다.");
+		}
+		
 		t[0].buy();
 		air[1].buy();
 		

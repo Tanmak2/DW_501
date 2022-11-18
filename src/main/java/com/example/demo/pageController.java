@@ -10,4 +10,14 @@ public class pageController {
 	public String callIndexPage() {
 		return "index";
 	}
+	
+	@GetMapping("/home")
+	public String callHomePage() {
+		return "home";
+	}
+	
+	@GetMapping("/tanmak2")
+	public String callMyPage() {
+		return "tanmak";
+	}
 }
