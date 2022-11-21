@@ -20,4 +20,9 @@ public class pageController {
 	public String callMyPage() {
 		return "tanmak";
 	}
+	
+	@GetMapping("/movie")
+	public String callMoviePage() {
+		return "movie";
+	}
 }
