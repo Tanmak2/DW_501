@@ -25,4 +25,8 @@ public class pageController {
 	public String callMoviePage() {
 		return "movie";
 	}
+	@GetMapping("/login")
+	public String callLoginPage() {
+		return "login";
+	}
 }
