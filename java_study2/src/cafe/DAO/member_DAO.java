@@ -7,6 +7,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import cafe.VO.member;
+import cafe.main.cafe_main;
+
 public class member_DAO {
 	private Connection conn=null;
 	private Statement st=null;
@@ -34,6 +37,8 @@ public class member_DAO {
 		}
 		return false;
 	}
+	
+	
 	
 	private void table_check() {
 		String sql="select COUNT(*) as cnt from information_schema.tables where table_schema='dw_501' and table_name='member'";
@@ -86,6 +91,65 @@ public class member_DAO {
 		}catch(Exception e){
 			e.printStackTrace();
 			System.out.println(e);
+		}
+	}
+	public boolean id_check(String id, String email) {
+		String sql = "select id, email from member where id=? OR email=?";
+		try {
+			pt = conn.prepareStatement(sql);
+			pt.setString(1, id);
+			pt.setString(2, email);
+			rs = pt.executeQuery();
+			if(rs.next()) {
+				return true;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return false;
+	}
+	public boolean login(String id, String pw) {
+		String sql = "select id, tel from member where id=? AND tel=?";
+		try {
+			pt = conn.prepareStatement(sql);
+			pt.setString(1, id);
+			pt.setString(2, pw);
+			rs = pt.executeQuery();
+			if(rs.next()) {
+				cafe_main.user = new member(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+				return false;
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+	public boolean tel_check(String tel) {
+		if(tel.substring(0, 3).equals("010") && tel.length() == 11){
+			return true;
+		}
+		return false;
+	}
+	public boolean email_check(String email) {
+		String[] emails=null;
+		if(email.indexOf("@") != -1) {
+			emails = email.split("@");
+			String[] add = emails[1].split(".");
+			for(String i : emails) {
+				System.out.println(i);
+				System.out.println(i.equals(""));
+			}
+			System.out.println(add);
+		}
+		else {
+			return false;
+		}
+		if(emails[0].equals("") || emails[1].split(".")[0].equals("") || emails[1].split(".")[1].equals("")) {
+			return false;			
+		}
+		else {
+			return true;
 		}
 	}
 }
