@@ -1,24 +1,13 @@
 package cafe.DAO;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 import cafe.VO.member;
 import cafe.main.cafe_main;
 
-public class member_DAO {
-	private Connection conn=null;
-	private Statement st=null;
-	private PreparedStatement pt=null;
-	private ResultSet rs=null;
+public class member_DAO extends base_DAO{
 	
 	public member_DAO() {
-		DriverLoad();
-		connect();
 		table_check();
 	}
 	public boolean member_insert(String id, String name, String tel, String email) {
@@ -74,25 +63,6 @@ public class member_DAO {
 		}
 		
 	}
-	private void connect() {
-		String url="jdbc:mysql://localhost:3306/dw_501";
-		String user = "root";
-		String pass = "toor";
-		try {
-			conn = DriverManager.getConnection(url, user, pass);
-		}catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("접속 실패");
-		}
-	}
-	private void DriverLoad() {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		}catch(Exception e){
-			e.printStackTrace();
-			System.out.println(e);
-		}
-	}
 	public boolean id_check(String id, String email) {
 		String sql = "select id, email from member where id=? OR email=?";
 		try {
@@ -110,14 +80,14 @@ public class member_DAO {
 		return false;
 	}
 	public boolean login(String id, String pw) {
-		String sql = "select id, tel from member where id=? AND tel=?";
+		String sql = "select * from member where id=? AND tel=?";
 		try {
 			pt = conn.prepareStatement(sql);
 			pt.setString(1, id);
 			pt.setString(2, pw);
 			rs = pt.executeQuery();
 			if(rs.next()) {
-				cafe_main.user = new member(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4));
+				cafe_main.user = new member(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getShort(5));
 				return false;
 			}
 		}catch(SQLException e) {
