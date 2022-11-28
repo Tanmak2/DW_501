@@ -10,7 +10,7 @@ public class signin implements menu_able{
 	public boolean menu_active() {
 		Scanner sc = new Scanner(System.in);
 		member_service ms = new member_service();
-		String id=null, name=null, tel=null, email=null; 
+		String id=null, name=null, tel=null, email=null, allergy=null; 
 		do {
 			System.out.println("회원가입 양식");
 			
@@ -22,8 +22,10 @@ public class signin implements menu_able{
 			tel = sc.nextLine();
 			System.out.print("이메일 : ");
 			email = sc.nextLine();
+			System.out.println("알러지(없으면 x입력) : ");
+			allergy = sc.nextLine();
 		}
-		while( !(ms.sign_member(id, name, tel, email)) );
+		while( !(ms.sign_member(id, name, tel, email, allergy)) );
 		return true;
 	}
 

@@ -10,8 +10,8 @@ public class member_DAO extends base_DAO{
 	public member_DAO() {
 		table_check();
 	}
-	public boolean member_insert(String id, String name, String tel, String email) {
-		String sql="insert into member(id,name,tel,email) values(?,?,?,?)";
+	public boolean member_insert(String id, String name, String tel, String email, String allergy) {
+		String sql="insert into member(id,name,tel,email,allergy) values(?,?,?,?,?)";
 		
 		try {
 			pt = conn.prepareStatement(sql);
@@ -19,6 +19,7 @@ public class member_DAO extends base_DAO{
 			pt.setString(2, name);
 			pt.setString(3, tel);
 			pt.setString(4, email);
+			pt.setString(5, allergy);
 			pt.executeUpdate();
 			return true;
 		}catch(SQLException e) {
@@ -87,7 +88,7 @@ public class member_DAO extends base_DAO{
 			pt.setString(2, pw);
 			rs = pt.executeQuery();
 			if(rs.next()) {
-				cafe_main.user = new member(rs.getString(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getShort(5));
+				cafe_main.user = new member(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getShort(6), rs.getString(7));
 				return false;
 			}
 		}catch(SQLException e) {
