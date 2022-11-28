@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+<body>
+	<h2>안녕하세요 여기는 EMP 화면 입니다.</h2>
+	<table id="emp" border="1">
+		<tr>
+			<td>사원번호</td>
+			<td>이름</td>
+			<td>직업</td>
+			<td>급여</td>
+			<td>입사날짜</td>
+		</tr>
+	</table>
+</body>
+<script
+src="https://code.jquery.com/jquery-3.6.1.js"
+integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+crossorigin="anonymous"
+></script>
+<script type="text/javascript">
+function callMyAPI(){
+    $.ajax({
+  	 url: '/api/v1/emp',
+  	 type: 'GET',
+  	 dataType: 'json',
+  	 success: function (response){
+  		 for(var i=0; i<response.length; i++){
+		 	let tr = $('<tr></tr>');
+			let empno = $('<td>'+response[i].empno+'</td>');
+			let ename = $('<td>'+response[i].ename+'</td>');
+			let job = $('<td>'+response[i].job+'</td>');
+			let sal = $('<td>'+response[i].sal+'</td>');
+			let hiredate = $('<td>'+response[i].hiredate+'</td>');
+			tr.append(empno);
+			tr.append(ename);
+			tr.append(job);
+			tr.append(sal);
+			tr.append(hiredate);
+			$('#emp').append(tr);
+  		 }
+  	 }
+    });
+}
+callMyAPI();
+</script>
+</html>

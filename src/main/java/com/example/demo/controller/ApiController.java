@@ -5,8 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,7 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.mapper.EmpMapper;
 import com.example.demo.service.ApiService;
+import com.example.demo.vo.EmpVO;
 import com.example.demo.vo.Movie;
 import com.example.demo.vo.login;
 import com.example.demo.vo.login2;
@@ -25,6 +25,9 @@ public class ApiController {
 	//@Autowired : Spring에서 객체를 관리함 (IoC : Inversion of Control 제어 역전)
 	@Autowired
 	ApiService apiService;
+	
+	@Autowired
+	EmpMapper empMapper;
 
 	@GetMapping("/api/v1/sample")
 	public List<String> callData(){
@@ -88,6 +91,11 @@ public class ApiController {
 		System.out.println("사용자 이름 : "+login2.getUserName());
 		System.out.println("연락처 : "+login2.getPhone());
 		return true;
+	}
+	
+	@GetMapping("api/v1/emp")
+	public List<EmpVO> callEmp(){
+		return empMapper.selectEmp();
 	}
 	
 }
