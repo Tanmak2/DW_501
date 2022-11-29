@@ -14,7 +14,7 @@ public class order implements menu_able {
 			System.out.println("로그인을 먼저 해주세요");
 		}
 		else {
-			food.order_food(menu());
+			while(food.order_food(menu()));
 		}
 		return true;
 	}
