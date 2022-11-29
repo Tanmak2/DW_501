@@ -43,4 +43,8 @@ public class pageController {
 	public String callEmpPage() {
 		return "emp";
 	}
+	@GetMapping("/dept")
+	public String callDeptPage() {
+		return "dept";
+	}
 }

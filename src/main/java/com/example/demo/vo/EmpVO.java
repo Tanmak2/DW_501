@@ -5,7 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class EmpVO {
+public class EmpVO extends BaseVO {
 	private int empno;
 	private String ename;
 	private String job;

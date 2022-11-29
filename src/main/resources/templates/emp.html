@@ -23,7 +23,14 @@ tr:nth-child(even) {
 </head>
 <body>
 	<h2>안녕하세요 여기는 EMP 화면 입니다.</h2>
-	<table id="emp" border="1">
+	<input id="empno" type="text" placeholder="사원번호를 입력하세요.">
+	<input id="ename" type="text" placeholder="사원이름를 입력하세요.">
+	<input id="job" type="text" placeholder="사원직책를 입력하세요.">
+	<input id="sal" type="text" placeholder="사원급여를 입력하세요.">
+	<button type="button" onclick="join()">사원 추가</button>
+	
+	
+	<table id="emp">
 		<tr>
 			<td>사원번호</td>
 			<td>이름</td>
@@ -63,5 +70,33 @@ function callMyAPI(){
     });
 }
 callMyAPI();
+
+
+function join(){
+	var empno = $("#empno").val();
+	var ename = $("#ename").val();
+	var job = $("#job").val();
+	var sal = $("#sal").val();
+	
+	var jsonData = {
+			"empno" : empno,
+			"ename" : ename,
+			"job" : job,
+			"sal" : sal
+	};
+	
+	$.ajax({
+    	  url: '/api/v1/emp/join',
+    	  type: 'POST',
+    	  contentType: 'application/json',
+    	  data : JSON.stringify(jsonData),
+    	  dataType: 'json',
+    	  success: function (response){
+    		  console.log(response);
+    		  alert("사원 추가 완료!");
+    		  location.reload();
+    	  }
+      })
+}
 </script>
 </html>
